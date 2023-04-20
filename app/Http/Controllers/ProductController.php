@@ -104,13 +104,13 @@ class ProductController extends Controller
         ]);
 
         $form_data = $request->only('name','price','sale_price','status','category_id','content');
-        
+
         if ($request->has('upload')) {
             $file_name = $request->upload->getClientOriginalName();
             $request->upload->move(public_path('uploads'), $file_name);
             $form_data['image'] = $file_name;
         }
-       
+
         $product->update($form_data);
         return redirect()->route('product.index');
     }
