@@ -10,7 +10,7 @@ class Category extends Model
     use HasFactory;
     // const CREATED_AT = 'ngay_tao';
     protected $fillable = ['name','status'];
-    protected $table = 'category';
+    protected $table = 'categories';
 
     public function products()
     {
@@ -29,6 +29,6 @@ class Category extends Model
 
     public function scopeIsActive($query)
     {
-        return $this->where('status',1)->orderBy('id','DESC');
+
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Category;
@@ -8,18 +9,18 @@ class CategoryController extends Controller
 {
     public function index(Request $req)
     {
-        $cats = Category::orderBy('id','DESC')->paginate(5); // SELECT * FROM category
+        $cats = Category::orderBy('id', 'DESC')->paginate(5); // SELECT * FROM category
 
         if ($req->keyword) {
-            $cats = Category::where('name','like','%'.$req->keyword.'%')
-                    ->orderBy('id','DESC')
-                    ->paginate(5); // SELECT * FROM category
+            $cats = Category::where('name', 'like', '%' . $req->keyword . '%')
+                ->orderBy('id', 'DESC')
+                ->paginate(5); // SELECT * FROM category
         }
 
         return view('admin.category.index', compact('cats'));
     }
 
-    public function create ()
+    public function create()
     {
         return view('admin.category.create');
     }
@@ -35,7 +36,7 @@ class CategoryController extends Controller
             'name.max' => 'Tên danh mục tối đa là 100 ký tự',
         ]);
 
-        $form_data = $req->all('name','status');
+        $form_data = $req->all('name', 'status');
 
         Category::create($form_data); // INSERT INTO category.....
         return redirect()->route('category.index');
@@ -50,7 +51,6 @@ class CategoryController extends Controller
         //     return abort(404); // 405, 419, 403, 500
         // }
         return view('admin.category.edit', compact('cat'));
-        
     }
 
     public function update(Request $req, Category $cat)
@@ -61,7 +61,7 @@ class CategoryController extends Controller
                 'required',
                 'min:3',
                 'max:100',
-                'unique:category,name,'.$cat->id
+                'unique:category,name,' . $cat->id
             ]
         ], [
             'name.required' => 'Tên danh mục không để trống',
@@ -70,7 +70,7 @@ class CategoryController extends Controller
             'name.max' => 'Tên danh mục tối đa là 100 ký tự',
         ]);
 
-        $form_data = $req->all('name','status');
+        $form_data = $req->all('name', 'status');
 
         $cat->update($form_data); // INSERT INTO category.....
         return redirect()->route('category.index');

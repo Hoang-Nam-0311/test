@@ -18,7 +18,6 @@ class CartController extends Controller
         $quantity = request('quantity', 1);
         $cart->create($product, $quantity);
         return redirect()->route('cart.view');
-       
     }
 
     public function delete($id, Cart $cart)
@@ -29,21 +28,21 @@ class CartController extends Controller
 
     public function update($ids, $quantity, Cart $cart)
     {
-        dd ($ids, $quantity, $cart);
+        dd($ids, $quantity, $cart);
         return redirect()->route('cart.view');
     }
 
     public function clear(Cart $cart)
     {
-       $cart->clear();
-       return redirect()->route('cart.view');
+        $cart->clear();
+        return redirect()->route('cart.view');
     }
 
     public function updateAll(Cart $cart)
     {
         $ids = request('id', []);
         $quantites = request('quantity', []);
-        for ($i=0; $i < count($ids); $i++) { 
+        for ($i = 0; $i < count($ids); $i++) {
             $cart->update($ids[$i], $quantites[$i]);
         }
         return redirect()->route('cart.view');
