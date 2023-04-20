@@ -39,7 +39,7 @@ class HomeController extends Controller
             return redirect()->route('home.index')->with('yes', 'Chào mừng trở lại');
         }
 
-        return redirect()->back()->with('no', 'Tài khoản hoặc mật khảu không chính xác');
+        return redirect()->back()->with('no', 'Tài khoản hoặc mật khẩu không chính xác');
     }
 
     public function check_register(Request $req)
