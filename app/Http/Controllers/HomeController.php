@@ -1,3 +1,4 @@
+
 <?php 
 namespace App\Http\Controllers;
 use App\Models\Customer;
@@ -89,3 +90,4 @@ class HomeController extends Controller
         return view('product-detail', compact('product'));
     }
 }
+
