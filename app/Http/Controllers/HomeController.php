@@ -11,11 +11,11 @@ class HomeController extends Controller
     public function index()
     {
         $products= Product::orderBy('id','DESC')->limit(6)->get();
-
+        $productroll=Product::orderBy('id','DESC')->limit(2)->get();
         $newProducts = Product::orderBy('id','DESC')->limit(8)->get();
         $randomProducts = Product::inRandomOrder()->limit(8)->get();
-        $saleProducts = Product::orderBy('sale_price','ASC')->where('sale_price','>',0)->limit(8)->get();
-        return view('home', compact('newProducts','saleProducts','randomProducts','products'));
+        // $saleProducts = Product::orderBy('sale_price','ASC')->where('sale_price','>',0)->limit(8)->get();
+        return view('home', compact('newProducts','randomProducts','products','productroll'));
     }
 
     public function about()
@@ -46,9 +46,9 @@ class HomeController extends Controller
         $form_data = $req->only('name','email','gender','address','phone');
         $form_data['password'] = bcrypt($req->password);
         if (Customer::create($form_data)) {
-            return redirect()->route('home.login')->with('yes', 'Đăng ký thành công, bạn có thể đăng nhập');
+            return redirect()->route('home.login')->with('Yes', 'Đăng ký thành công, bạn có thể đăng nhập');
         }
-        return redirect()->back()->with('no', 'Đăng ký không thành công, hãy thử đăng ký lại thông tin');
+        return redirect()->back()->with('No', 'Đăng ký không thành công, hãy thử đăng ký lại thông tin');
     }
     public function logout()
     {
@@ -69,6 +69,12 @@ class HomeController extends Controller
         $products = $cat->products()->paginate(12);
         return view('category', compact('cat','products'));
     }
+
+    public function product()
+    {
+       
+    }
+
     public function contact()
     {
         return view('contact');

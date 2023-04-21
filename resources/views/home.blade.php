@@ -2,36 +2,32 @@
 
 @section('title','Trang chủ')
 @section('main')
-<!-- start banner Area -->
+
 <section class="banner-area">
     <div class="container">
         <div class="row fullscreen align-items-center justify-content-start">
-            <div class="col-lg-12">
-                <div class="active-banner-slider owl-carousel">
-                    <!-- single-slide -->
-                    <div class="row single-slide align-items-center d-flex">
-                        <div class="col-lg-5 col-md-6">
-                            <div class="banner-content">
-                                <h1>Nike New <br>Collection!</h1>
-                                <p>𝐖𝐞 𝐨𝐧𝐥𝐲 𝐬𝐞𝐥𝐥 𝐀𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜, 𝐬𝐚𝐲 𝐍𝐎 𝐭𝐨 𝐅𝐀𝐊𝐄.</p>
-                                <div class="add-bag d-flex align-items-center">
-                                    <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-                                    <span class="add-text text-uppercase">Add to Bag</span>
+            <div class="col-lg-10">
+                <div class="row single-slide align-items-center d-flex">
+                    <div class="col-lg-8 col-md-4">
+                        <div class="banner-content">
+
+                            <br>
+                            <div class="clock-roll">
+                                <div class="text-clock">
+                                    <img src="https://cdn.shopify.com/s/files/1/0567/1193/8244/files/watch_8dcc8f8a-b752-4960-bc24-b0b3eb6dcf27.png?v=1626849231"
+                                        alt="">
+                                    <span class="text">
+                                        <img src="https://cdn.shopify.com/s/files/1/0567/1193/8244/files/watch2.png?v=1626849714"
+                                            alt="">
+                                    </span>
+
                                 </div>
+                                 <h1>Watches since 1940</h1>
                             </div>
-                        </div>
-                    </div>
-                    <!-- single-slide -->
-                    <div class="row single-slide">
-                        <div class="col-lg-5">
-                            <div class="banner-content">
-                                <h1>Nike New <br>Collection!</h1>
-                                <p>𝐖𝐞 𝐨𝐧𝐥𝐲 𝐬𝐞𝐥𝐥 𝐀𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜, 𝐬𝐚𝐲 𝐍𝐎 𝐭𝐨 𝐅𝐀𝐊𝐄.</p>
-                                <div class="add-bag d-flex align-items-center">
-                                    <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-                                    <span class="add-text text-uppercase">Add to Bag</span>
-                                </div>
-                            </div>
+                           
+                            <p>𝐖𝐞 𝐨𝐧𝐥𝐲 𝐬𝐞𝐥𝐥 𝐀𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜, 𝐬𝐚𝐲 𝐍𝐎 𝐭𝐨 𝐅𝐀𝐊𝐄.</p>
+                            <span>Glashütte the world-famous home of German horology for 81 years. And in the middle of it
+                                all the kolly swiss watches workshops</span>
                         </div>
                     </div>
                 </div>
@@ -98,11 +94,10 @@
                     <div class="col-lg-8 col-md-8">
                         <div class="single-deal">
                             <div class="overlay"></div>
-                            <img class="img-fluid w-100" src="{{url('')}}/assets/img/category/c1.jpg" alt="">
-                            <a href="{{url('')}}/assets/
-img/category/c1.jpg" class="img-pop-up" target="_blank">
+                            <img class="img-fluid w-100 pic" src="{{url('')}}/assets/img/banner/blog-02.webp" alt="">
+                            <a href="{{url('')}}/assets/img/banner/blog-02.webp" class="img-pop-up" target="_blank">
                                 <div class="deal-details">
-                                    <h6 class="deal-title">Sneaker for Sports</h6>
+                                    <h6 class="deal-title">Aenean massa</h6>
                                 </div>
                             </a>
                         </div>
@@ -110,11 +105,10 @@ img/category/c1.jpg" class="img-pop-up" target="_blank">
                     <div class="col-lg-4 col-md-4">
                         <div class="single-deal">
                             <div class="overlay"></div>
-                            <img class="img-fluid w-100" src="{{url('')}}/assets/img/category/c2.jpg" alt="">
-                            <a href="{{url('')}}/assets/
-img/category/c2.jpg" class="img-pop-up" target="_blank">
+                            <img class="img-fluid w-100 pic" src="{{url('')}}/assets/img/banner/blog-09.webp" alt="">
+                            <a href="{{url('')}}/assets/img/banner/blog-09.webp" class="img-pop-up" target="_blank">
                                 <div class="deal-details">
-                                    <h6 class="deal-title">Sneaker for Sports</h6>
+                                    <h6 class="deal-title">Donec quam felis</h6>
                                 </div>
                             </a>
                         </div>
@@ -122,11 +116,10 @@ img/category/c2.jpg" class="img-pop-up" target="_blank">
                     <div class="col-lg-4 col-md-4">
                         <div class="single-deal">
                             <div class="overlay"></div>
-                            <img class="img-fluid w-100" src="{{url('')}}/assets/img/category/c3.jpg" alt="">
-                            <a href="{{url('')}}/assets/
-img/category/c3.jpg" class="img-pop-up" target="_blank">
+                            <img class="img-fluid w-100 pic" src="{{url('')}}/assets/img/banner/blog-04.webp" alt="">
+                            <a href="{{url('')}}/assets/img/banner/blog-04.webp" class="img-pop-up" target="_blank">
                                 <div class="deal-details">
-                                    <h6 class="deal-title">Product for Couple</h6>
+                                    <h6 class="deal-title">Watches by far timeless</h6>
                                 </div>
                             </a>
                         </div>
@@ -134,11 +127,10 @@ img/category/c3.jpg" class="img-pop-up" target="_blank">
                     <div class="col-lg-8 col-md-8">
                         <div class="single-deal">
                             <div class="overlay"></div>
-                            <img class="img-fluid w-100" src="{{url('')}}/assets/img/category/c4.jpg" alt="">
-                            <a href="{{url('')}}/assets/
-img/category/c4.jpg" class="img-pop-up" target="_blank">
+                            <img class="img-fluid w-100 pic" src="{{url('')}}/assets/img/banner/blog-10.webp" alt="">
+                            <a href="{{url('')}}/assets/img/banner/blog-10.webp" class="img-pop-up" target="_blank">
                                 <div class="deal-details">
-                                    <h6 class="deal-title">Sneaker for Sports</h6>
+                                    <h6 class="deal-title">Lorem ipsum dolor</h6>
                                 </div>
                             </a>
                         </div>
@@ -151,7 +143,7 @@ img/category/c4.jpg" class="img-pop-up" target="_blank">
                     <img class="img-fluid w-100" src="{{url('')}}/assets/img/category/c5.jpg" alt="">
                     <a href="{{url('')}}/assets/img/category/c5.jpg" class="img-pop-up" target="_blank">
                         <div class="deal-details">
-                            <h6 class="deal-title">Sneaker for Sports</h6>
+                            <h6 class="deal-title">Suppersale</h6>
                         </div>
                     </a>
                 </div>
@@ -170,10 +162,8 @@ img/category/c4.jpg" class="img-pop-up" target="_blank">
             <div class="col-lg-6 text-center">
                 <div class="section-title">
                     <h1>Latest Products</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore et
-                        dolore
-                        magna aliqua.</p>
+                    <p>Glashütte the world-famous home of German horology for 81 years. And in the middle of it all the
+                        kolly swiss watches workshops</p>
                 </div>
             </div>
         </div>
@@ -187,8 +177,8 @@ img/category/c4.jpg" class="img-pop-up" target="_blank">
                     <div class="product-details">
                         <h6>{{$prod->name}}</h6>
                         <div class="price">
-                            <h6>${{number_format($prod->sale_price)}}</h6>
-                            <h6 class="l-through">${{number_format($prod->price)}}</h6>
+                            <h6>${{$prod->price}}</h6>
+                            <!-- <h6 class="l-through">${{number_format($prod->price)}}</h6> -->
                         </div>
                         <div class="prd-bottom">
 
@@ -253,40 +243,24 @@ img/category/c4.jpg" class="img-pop-up" target="_blank">
                 </div>
                 <a href="" class="primary-btn">Shop Now</a>
             </div>
+            
             <div class="col-lg-6 no-padding exclusive-right">
                 <div class="active-exclusive-product-slider">
-                    <!-- single exclusive carousel -->
+                     @foreach($productroll as $prod)
                     <div class="single-exclusive-slider">
-                        <img class="img-fluid" src="{{url('')}}/assets/img/product/e-p1.png" alt="">
+                        <img class="img-fluid" src="{{url('uploads')}}/{{$prod->image}}" alt="">
                         <div class="product-details">
                             <div class="price">
-                                <h6>$150.00</h6>
-                                <h6 class="l-through">$210.00</h6>
+                                <h6>${{$prod->price}}</h6>
                             </div>
-                            <h4>addidas New Hammer sole
-                                for Sports person</h4>
+                            <h4>{{$prod->name}}</h4>
                             <div class="add-bag d-flex align-items-center justify-content-center">
                                 <a class="add-btn" href=""><span class="ti-bag"></span></a>
                                 <span class="add-text text-uppercase">Add to Bag</span>
                             </div>
                         </div>
                     </div>
-                    <!-- single exclusive carousel -->
-                    <div class="single-exclusive-slider">
-                        <img class="img-fluid" src="{{url('')}}/assets/img/product/e-p1.png" alt="">
-                        <div class="product-details">
-                            <div class="price">
-                                <h6>$150.00</h6>
-                                <h6 class="l-through">$210.00</h6>
-                            </div>
-                            <h4>addidas New Hammer sole
-                                for Sports person</h4>
-                            <div class="add-bag d-flex align-items-center justify-content-center">
-                                <a class="add-btn" href=""><span class="ti-bag"></span></a>
-                                <span class="add-text text-uppercase">Add to Bag</span>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
