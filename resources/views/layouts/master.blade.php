@@ -5,7 +5,7 @@
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="{{url('')}}/assets/img/logo4.png">
+    <link rel="shortcut icon" href="{{url('')}}/assets/img/favicon.webp">
     <!-- Author Meta -->
     <meta name="author" content="CodePixar">
     <!-- Meta Description -->
@@ -15,7 +15,7 @@
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Snaker</title>
+    <title>Kolly</title>
 
     <link rel="stylesheet" href="{{url('')}}/assets/css/linearicons.css">
     <link rel="stylesheet" href="{{url('')}}/assets/css/font-awesome.min.css">

@@ -69,9 +69,26 @@
                     </label>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="">Size</label>
+                <input type="text" class="form-control" name="size" placeholder="Input field">
+                @error('size')
+                <small style="color: red; font-style: italic">{{$message}}</small>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="">weight</label>
+                <input type="text" class="form-control" name="weight" placeholder="Input field">
+                @error('weight')
+                <small style="color: red; font-style: italic">{{$message}}</small>
+                @enderror
+            </div>
+
             <div class="form-group">
                 <label for="">Ảnh</label>
-                <input type="file" class="form-control" name="upload" >
+                <input type="file" class="form-control" name="upload">
                 @error('upload')
                 <small style="color: red; font-style: italic">{{$message}}</small>
                 @enderror

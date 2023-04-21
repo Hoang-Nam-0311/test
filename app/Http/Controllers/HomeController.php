@@ -8,6 +8,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class HomeController extends Controller
 {
     public function index()
@@ -18,6 +19,7 @@ class HomeController extends Controller
         $randomProducts = Product::inRandomOrder()->limit(8)->get();
         // $saleProducts = Product::orderBy('sale_price','ASC')->where('sale_price','>',0)->limit(8)->get();
         return view('home', compact('newProducts', 'randomProducts'));
+
     }
 
     public function about()
@@ -32,6 +34,7 @@ class HomeController extends Controller
 
     public function check_login(Request $req)
     {
+
         $form_data = $req->only('email', 'password');
         $check = Auth::guard('cus')->attempt($form_data, $req->has('remember'));
 
@@ -40,6 +43,7 @@ class HomeController extends Controller
         }
 
         return redirect()->back()->with('no', 'Tài khoản hoặc mật khẩu không chính xác');
+
     }
 
     public function check_register(Request $req)
@@ -50,6 +54,7 @@ class HomeController extends Controller
             return redirect()->route('home.login')->with('yes', 'Đăng ký thành công, bạn có thể đăng nhập');
         }
         return redirect()->back()->with('no', 'Đăng ký không thành công, hãy thử đăng ký lại thông tin');
+
     }
     public function logout()
     {
@@ -64,11 +69,12 @@ class HomeController extends Controller
         return view('home.profile', compact('auth'));
     }
 
-
     public function category(Category $cat)
     {
         $products = $cat->products()->paginate(12);
+
         return view('category', compact('cat', 'products'));
+
     }
 
     public function contact()
