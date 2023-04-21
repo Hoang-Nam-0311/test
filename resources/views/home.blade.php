@@ -169,20 +169,22 @@
         </div>
         <div class="row">
             <!-- single product -->
-            @foreach($products as $prod)
+
             <div class="col-lg-4 col-md-6">
 
                 <div class="single-product">
-                    <img class="img-fluid" src="{{url('uploads')}}/{{$prod->image}}" alt="">
+                    <img class="img-fluid" src="" alt="">
                     <div class="product-details">
-                        <h6>{{$prod->name}}</h6>
+                        <h6></h6>
                         <div class="price">
-                            <h6>${{$prod->price}}</h6>
-                            <!-- <h6 class="l-through">${{number_format($prod->price)}}</h6> -->
+
+                            <h6></h6>
+                            <h6 class="l-through"></h6>
+
                         </div>
                         <div class="prd-bottom">
 
-                            <a href="{{route('cart.add', $prod->id)}}" class="social-info">
+                            <a href="" class="social-info">
                                 <span class="ti-bag"></span>
                                 <p class="hover-text">add to bag</p>
                             </a>
@@ -194,7 +196,7 @@
                                 <span class="lnr lnr-sync"></span>
                                 <p class="hover-text">compare</p>
                             </a>
-                            <a href="{{route('home.productDetail', $prod->id)}}" class="social-info">
+                            <a href="" class="social-info">
                                 <span class="lnr lnr-move"></span>
                                 <p class="hover-text">view more</p>
                             </a>
@@ -202,8 +204,6 @@
                     </div>
                 </div>
             </div>
-
-            @endforeach
         </div>
     </div>
 </div>
