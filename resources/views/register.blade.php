@@ -23,38 +23,33 @@
                         @csrf
 
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Username"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+                            <input type="text" class="form-control" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="email" class="form-control" name="email" placeholder="Email"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+                            <input type="email" class="form-control" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="number" class="form-control" name="phone" placeholder="Phone"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'">
+                            <input type="number" class="form-control" name="phone" placeholder="Phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="password" class="form-control" name="password" placeholder="Password"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                            <input type="password" class="form-control" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
                         </div>
                         <div class="form-check">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" name="address" placeholder="Address"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'">
+                            <input type="text" class="form-control" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'">
                         </div>
                         <div class="col-md-12 form-group">
                             <div class="creat_account">
-                                <input type="radio"  name="gender" value="1" checked>
+                                <input type="radio" name="gender" value="1" checked>
                                 <label for="f-option2">Male</label>
                             </div>
                             <div class="creat_account">
-                                <input type="radio"  name="gender" value="0">
+                                <input type="radio" name="gender" value="0">
                                 <label for="f-option2">Female</label>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-12 form-group">
                             <button type="submit" value="submit" class="primary-btn">Register</button>
                             <a href="#">Forgot Password?</a>
