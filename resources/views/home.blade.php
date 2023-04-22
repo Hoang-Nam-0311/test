@@ -14,17 +14,15 @@
                             <br>
                             <div class="clock-roll">
                                 <div class="text-clock">
-                                    <img src="https://cdn.shopify.com/s/files/1/0567/1193/8244/files/watch_8dcc8f8a-b752-4960-bc24-b0b3eb6dcf27.png?v=1626849231"
-                                        alt="">
+                                    <img src="https://cdn.shopify.com/s/files/1/0567/1193/8244/files/watch_8dcc8f8a-b752-4960-bc24-b0b3eb6dcf27.png?v=1626849231" alt="">
                                     <span class="text">
-                                        <img src="https://cdn.shopify.com/s/files/1/0567/1193/8244/files/watch2.png?v=1626849714"
-                                            alt="">
+                                        <img src="https://cdn.shopify.com/s/files/1/0567/1193/8244/files/watch2.png?v=1626849714" alt="">
                                     </span>
 
                                 </div>
-                                 <h1>Watches since 1940</h1>
+                                <h1>Watches since 1940</h1>
                             </div>
-                           
+
                             <p>𝐖𝐞 𝐨𝐧𝐥𝐲 𝐬𝐞𝐥𝐥 𝐀𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜, 𝐬𝐚𝐲 𝐍𝐎 𝐭𝐨 𝐅𝐀𝐊𝐄.</p>
                             <span>Glashütte the world-famous home of German horology for 81 years. And in the middle of it
                                 all the kolly swiss watches workshops</span>
@@ -243,24 +241,22 @@
                 </div>
                 <a href="" class="primary-btn">Shop Now</a>
             </div>
-            
+
             <div class="col-lg-6 no-padding exclusive-right">
                 <div class="active-exclusive-product-slider">
-                     @foreach($productroll as $prod)
                     <div class="single-exclusive-slider">
-                        <img class="img-fluid" src="{{url('uploads')}}/{{$prod->image}}" alt="">
+                        <img class="img-fluid" src="" alt="">
                         <div class="product-details">
                             <div class="price">
-                                <h6>${{$prod->price}}</h6>
+                                <h6></h6>
                             </div>
-                            <h4>{{$prod->name}}</h4>
+                            <h4></h4>
                             <div class="add-bag d-flex align-items-center justify-content-center">
                                 <a class="add-btn" href=""><span class="ti-bag"></span></a>
                                 <span class="add-text text-uppercase">Add to Bag</span>
                             </div>
                         </div>
                     </div>
-                    @endforeach
                 </div>
             </div>
         </div>
