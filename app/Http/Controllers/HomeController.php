@@ -19,7 +19,6 @@ class HomeController extends Controller
         $randomProducts = Product::inRandomOrder()->limit(8)->get();
         // $saleProducts = Product::orderBy('sale_price','ASC')->where('sale_price','>',0)->limit(8)->get();
         return view('home', compact('newProducts', 'randomProducts'));
-
     }
 
     public function about()
@@ -43,7 +42,6 @@ class HomeController extends Controller
         }
 
         return redirect()->back()->with('no', 'Tài khoản hoặc mật khẩu không chính xác');
-
     }
 
     public function check_register(Request $req)
@@ -54,8 +52,8 @@ class HomeController extends Controller
             return redirect()->route('home.login')->with('yes', 'Đăng ký thành công, bạn có thể đăng nhập');
         }
         return redirect()->back()->with('no', 'Đăng ký không thành công, hãy thử đăng ký lại thông tin');
-
     }
+
     public function logout()
     {
         Auth::guard('cus')->logout();
@@ -74,7 +72,6 @@ class HomeController extends Controller
         $products = $cat->products()->paginate(12);
 
         return view('category', compact('cat', 'products'));
-
     }
 
     public function contact()

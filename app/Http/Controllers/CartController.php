@@ -28,14 +28,14 @@ class CartController extends Controller
 
     public function update($ids, $quantity, Cart $cart)
     {
-        dd ($ids, $quantity, $cart);
+        dd($ids, $quantity, $cart);
         return redirect()->route('cart.view');
     }
 
     public function clear(Cart $cart)
     {
-       $cart->clear();
-       return redirect()->route('cart.view');
+        $cart->clear();
+        return redirect()->route('cart.view');
     }
 
     public function updateAll(Cart $cart)
