@@ -55,8 +55,14 @@
                                 <td>
                                     <div class="product_count">
                                         <input type="text" name="quantity[]" id="sst" value="{{$item->quantity}}" class="input-text qty">
-                                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-                                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                                        <button onclick="
+                                        var result = document.getElementById('sst');
+                                        var sst = result.value;
+                                        if( !isNaN( sst )) {
+                                            result.value++;
+                                            return false;
+                                        }" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                                        <button onclick="" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
                                     </div>
                                 </td>
                                 <td>
@@ -165,5 +171,4 @@
     </div>
 </section>
 <!--================End Cart Area =================-->
-
 @stop()
