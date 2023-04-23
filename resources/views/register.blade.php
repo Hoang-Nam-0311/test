@@ -11,8 +11,7 @@
                     <img class="img-fluid" src="{{url('')}}/assets/img/login.jpg" alt="">
                     <div class="hover">
                         <h4>Register for become customer</h4>
-                        <p>There are advances being made in science and technology everyday, and a good example of this
-                            is the</p>
+                        <p>Become customer just by register an account</p>
                     </div>
                 </div>
             </div>
