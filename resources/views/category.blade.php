@@ -251,6 +251,7 @@
             </div>
             <!-- End Filter Bar -->
             <!-- Start Best Seller -->
+            
             <section class="lattest-product-area pb-40 category-list">
                 <div class="row">
                     <!-- single product -->

@@ -19,9 +19,9 @@ class HomeController extends Controller
 
         $productroll=Product::orderBy('id','DESC')->limit(2)->get();
         $newProducts = Product::orderBy('id','DESC')->limit(8)->get();
-        $randomProducts = Product::inRandomOrder()->limit(8)->get();
+        // $randomProducts = Product::inRandomOrder()->limit(8)->get();
         
-        return view('home', compact('newProducts','randomProducts','products','productroll'));
+        return view('home', compact('newProducts','products','productroll'));
     }
 
     public function about()
