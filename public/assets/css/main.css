@@ -5671,8 +5671,10 @@ label {
     padding: 0px 38px;
     text-transform: uppercase;
     margin-right: 10px;
-    border-radius: 5px;
+    border-radius: 0;
     margin-left: 15px;
+    height: 40px;
+    margin-top: -5px;
 }
 
 .s_product_text .card_area .icon_btn {
@@ -5682,7 +5684,8 @@ label {
     line-height: 40px;
     text-align: center;
     background: #828bb2;
-    border-radius: 50%;
+    border-radius: 0;
+    margin-top: -5px;
     display: inline-block;
     color: #fff;
     -webkit-transition: all 0.3s ease 0s;
@@ -5728,9 +5731,8 @@ label {
 .product_count input {
     margin-top: 19px;
     width: 68px;
-    height: 38px;
+    height: 40px;
     border: 1px solid #eeeeee;
-    border-radius: 3px;
     padding-left: 10px;
 }
 
@@ -8389,5 +8391,86 @@ label {
 
 .single-deal .pic {
   height: 191px;
+}
+
+.weight {
+    margin-bottom: 30px;
+    margin-top: 20px;
+    align-items: center;
+    display: flex;
+}
+
+.weight label{
+    font-size: 17px;
+    font-weight: 500;
+    
+}
+
+.size{
+    align-items: center;
+    display: flex;
+}
+
+.size label {
+    font-size: 17px;
+    font-weight: 500;
+    
+}
+
+.btn-outline-primary{
+    border-radius: 0;
+    border-color:#e2e2e2;
+    color: #6f6f6f;
+}
+
+.btn-outline-primary:hover{
+    color: #fff;
+    background-color: #007bff ;
+ 
+}
+.review label{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.btn:focus{
+    border-color:#c39a85;
+    color: #c39a85;
+}
+.btn-outline-primary:focus {
+    box-shadow: none;
+}
+.review {
+    align-items: center;
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.star{
+    margin-left: -130px;
+}
+
+.star .fa-star{
+    color: #ba917b;
+}
+.buttonfil1 {
+    margin-left: 50px;
+}
+
+.buttonfil2 {
+    margin-left: 70px;
+}
+
+
+.buttonfil1 .btn{
+    margin-left: 15px;
+}
+
+.buttonfil2 .btn {
+    margin-left: 15px;
+}
+.modal-content{
+    margin-top: 130px;
 }
 /*# sourceMappingURL=main.css.map */
