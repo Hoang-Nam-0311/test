@@ -35,12 +35,6 @@ Route::group(['prefix' => ''], function () {
     Route::post('/register', [HomeController::class, 'check_register'])->name('home.register');
 });
 
-
-
-
-
-
-
 Route::group(['prefix' => 'cart'], function () {
     Route::get('/view', [CartController::class, 'view'])->name('cart.view');
     Route::get('/add/{product}', [CartController::class, 'add'])->name('cart.add');
