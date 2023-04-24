@@ -20,7 +20,7 @@ use App\Http\Controllers\CartController;
 */
 // php artisan serve
 
-Route::group(['prefix' => ''], function() {
+Route::group(['prefix' => ''], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
     Route::get('/about-us', [HomeController::class, 'about'])->name('home.about');
     Route::get('/contact-us', [HomeController::class, 'contact'])->name('home.contact');
@@ -35,13 +35,7 @@ Route::group(['prefix' => ''], function() {
     Route::post('/register', [HomeController::class, 'check_register'])->name('home.register');
 });
 
-
-
-
-
-
-
-Route::group(['prefix' => 'cart'], function() {
+Route::group(['prefix' => 'cart'], function () {
     Route::get('/view', [CartController::class, 'view'])->name('cart.view');
     Route::get('/add/{product}', [CartController::class, 'add'])->name('cart.add');
     Route::get('/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
@@ -51,9 +45,9 @@ Route::group(['prefix' => 'cart'], function() {
     Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 });
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-    
+
     Route::resources([
         'category' => CategoryController::class,
         'product' => ProductController::class,
@@ -61,8 +55,8 @@ Route::group(['prefix' => 'admin'], function() {
 
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
-    Route::group(['prefix' => 'category'], function() {
-        
+    Route::group(['prefix' => 'category'], function () {
+
         Route::get('/', [CategoryController::class, 'index'])->name('category.index');
 
         Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
@@ -72,13 +66,12 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/edit/{cat}', [CategoryController::class, 'edit'])->name('category.edit');
 
         Route::put('/update/{cat}', [CategoryController::class, 'update'])->name('category.update');
-        
-        Route::delete('/delete/{cat}', [CategoryController::class, 'delete'])->name('category.delete');
 
+        Route::delete('/delete/{cat}', [CategoryController::class, 'delete'])->name('category.delete');
     });
 
-    Route::group(['prefix' => 'product'], function() {
-        
+    Route::group(['prefix' => 'product'], function () {
+
         Route::get('/', [ProductController::class, 'index'])->name('product.index');
 
         Route::get('/create', [ProductController::class, 'create'])->name('product.create');
@@ -88,9 +81,7 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
 
         Route::put('/update/{product}', [ProductController::class, 'update'])->name('product.update');
-        
+
         Route::delete('/delete/{product}', [ProductController::class, 'delete'])->name('product.delete');
-
     });
-
 });

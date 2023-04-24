@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Livewire\Home;
@@ -35,26 +36,27 @@ class HomeController extends Controller
 
     public function check_login(Request $req)
     {
-       $form_data = $req->only('email','password');
-       $check = Auth::guard('cus')->attempt($form_data, $req->has('remember'));
 
-       if ($check) {
+        $form_data = $req->only('email', 'password');
+        $check = Auth::guard('cus')->attempt($form_data, $req->has('remember'));
+
+        if ($check) {
             return redirect()->route('home.index')->with('yes', 'Chào mừng trở lại');
-       }
+        }
 
-       return redirect()->back()->with('no', 'Tài khoản hoặc mật khảu không chính xác');
-
+        return redirect()->back()->with('no', 'Tài khoản hoặc mật khẩu không chính xác');
     }
 
     public function check_register(Request $req)
     {
-        $form_data = $req->only('name','email','gender','address','phone');
+        $form_data = $req->only('name', 'email', 'gender', 'address', 'phone');
         $form_data['password'] = bcrypt($req->password);
         if (Customer::create($form_data)) {
-            return redirect()->route('home.login')->with('Yes', 'Đăng ký thành công, bạn có thể đăng nhập');
+            return redirect()->route('home.login')->with('yes', 'Đăng ký thành công, bạn có thể đăng nhập');
         }
-        return redirect()->back()->with('No', 'Đăng ký không thành công, hãy thử đăng ký lại thông tin');
+        return redirect()->back()->with('no', 'Đăng ký không thành công, hãy thử đăng ký lại thông tin');
     }
+
     public function logout()
     {
         Auth::guard('cus')->logout();
@@ -80,15 +82,11 @@ class HomeController extends Controller
         return view('category', compact('cat','products','cate'));
     }
 
-    public function product()
-    {
-       
-    }
-
     public function contact()
     {
         return view('contact');
     }
+
     public function register()
     {
         return view('register');

@@ -15,12 +15,12 @@ class ProductController extends Controller
      */
     public function index(Request $req)
     {
-        $products = Product::orderBy('id','DESC')->paginate(); 
+        $products = Product::orderBy('id', 'DESC')->paginate();
 
         if ($req->keyword) {
-            $products = Product::where('name','like','%'.$req->keyword.'%')
-                    ->orderBy('id','DESC')
-                    ->paginate(); 
+            $products = Product::where('name', 'like', '%' . $req->keyword . '%')
+                ->orderBy('id', 'DESC')
+                ->paginate();
         }
 
         return view('admin.product.index', compact('products'));
@@ -33,7 +33,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $cats = Category::orderBy('name','ASC')->get(); 
+        $cats = Category::orderBy('name', 'ASC')->get();
         return view('admin.product.create', compact('cats'));
     }
 
@@ -53,7 +53,7 @@ class ProductController extends Controller
             'upload' => 'required|mimes:jpeg,jpg,png,gif,webp'
         ]);
 
-        $form_data = $request->only('name','price','sale_price','status','content','size','weight','category_id');
+        $form_data = $request->only('name', 'price', 'sale_price', 'status', 'content', 'size', 'weight', 'category_id');
         $file_name = $request->upload->getClientOriginalName();
         $request->upload->move(public_path('uploads'), $file_name);
         $form_data['image'] = $file_name;
@@ -82,8 +82,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $cats = Category::orderBy('name','ASC')->get(); 
-        return view('admin.product.edit', compact('cats','product'));
+        $cats = Category::orderBy('name', 'ASC')->get();
+        return view('admin.product.edit', compact('cats', 'product'));
     }
 
     /**
@@ -103,14 +103,18 @@ class ProductController extends Controller
             'upload' => 'mimes:jpeg,jpg,png,gif,webp'
         ]);
 
-        $form_data = $request->only('name','price','sale_price','status','category_id','content','size','weight');
-        
+        $form_data = $request->only('name', 'price', 'sale_price', 'status', 'category_id', 'content', 'size', 'weight');
+
+
+        $form_data = $request->only('name', 'price', 'sale_price', 'status', 'category_id', 'content');
+
+
         if ($request->has('upload')) {
             $file_name = $request->upload->getClientOriginalName();
             $request->upload->move(public_path('uploads'), $file_name);
             $form_data['image'] = $file_name;
         }
-       
+
         $product->update($form_data);
         return redirect()->route('product.index');
     }
