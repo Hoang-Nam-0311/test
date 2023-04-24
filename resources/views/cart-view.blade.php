@@ -50,7 +50,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>${{$item->price}}</h5>
+                                    <h5>£{{$item->price}}</h5>
                                 </td>
                                 <td>
                                     <div class="product_count">
@@ -66,7 +66,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>${{$item->price * $item->quantity}}</h5>
+                                    <h5>£{{$item->price * $item->quantity}}</h5>
                                 </td>
                                 <td>
                                     <a href="{{route('cart.delete', $item->id)}}"><i class="fa fa-times"></i></a>

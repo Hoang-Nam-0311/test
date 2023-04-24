@@ -7,11 +7,11 @@
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
-                <h1>Product Details Page</h1>
+                <h1>Constellation</h1>
                 <nav class="d-flex align-items-center">
-                    <a href="{{route('home.index')}}">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="{{route('home.index')}}">Shop<span class="lnr lnr-arrow-right"></span></a>
                     <a href="{{route('home.category', $product->cat->id)}}">{{$product->cat->name}}<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="single-product.html">Product Detail</a>
+                    <a href="single-product.html">{{$product->name}}</a>
                 </nav>
             </div>
         </div>
@@ -39,33 +39,85 @@
             <div class="col-lg-5 offset-lg-1">
                 <div class="s_product_text">
                     <h3>{{$product->name}}</h3>
-                    <h2>${{number_format($product->sale_price)}}</h2>
+                    <div class="nam">
+ <h2>£{{$product->price}}.00</h2><h4>(12 month warranty)</h4>
+                    </div>
+                   
 
                     <ul class="list">
-                        <li><a class="active" href="{{route('home.category', $product->cat->id)}}"><span>Category</span>
+                        <li><a class="active" href="{{route('home.category', $product->cat->id)}}"><span>Brands</span>
                                 : {{$product->cat->name}}</a></li>
                         <li><a href="#"><span>Availibility</span> : In Stock</a></li>
                     </ul>
-                    <p>{{$product->content}}</p>
+                    <p style="margin-top:20px;"> {{$product->content}}</p>
+                    <hr>
+                    <h3>SPECIFICATIONS</h3>
+                    <div class="weight">
+                        
+                        <label for="">Weight</label>
+                        <div class="buttonfil1">
+                        <button type="button" class="btn btn-outline-primary">58.5 GM</button>
+                        <button type="button" class="btn btn-outline-primary">48.9 GM</button>
+                        </div>
+                      
+                    </div>
 
-                    <div class="product_count">
-                        <label for="qty">Size:</label>
-                        <div class="form-group">
-                            <select class="form-control form-control-sm" name="" id="">
-                                <option>36</option>
-                                <option>37</option>
-                                <option>38</option>
-                                <option>39</option>
-                                <option>40</option>
-                                <option>41</option>
-                                <option>42</option>
-                                <option>43</option>
-                            </select>
+
+                    <div class="size">
+                        <label for="">Size</label>
+                         <div class="buttonfil2">
+                        <button type="button" class="btn btn-outline-primary">40 MM</button>
+                        <button type="button" class="btn btn-outline-primary">36 MM</button>
+                         </div>
+                       
+                    </div>
+
+                    <hr>
+
+                    <div class="review">
+                        <label for="">NO REVIEWS</label>
+                        <div class="star">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+
+                        <div class="viewsize">
+                            <i class="fa fa-book" aria-hidden="true" data-toggle="modal" data-target="#exampleModal"></i>
+                            <label for=""  data-toggle="modal" data-target="#exampleModal">SIZEGUIDE</label>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
                         </div>
                     </div>
                     <div class="card_area d-flex align-items-center">
+                        <div class="product_count">
+
+							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+							 class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+							 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+						</div>
                         <a class="primary-btn" href="{{route('cart.add', $product->id)}}">Add to Cart</a>
-                        <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
                         <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
                     </div>
                 </div>

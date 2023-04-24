@@ -171,30 +171,25 @@
                 <div class="common-filter">
                     <div class="head">Brands</div>
                     <form action="#">
+                        @foreach ($cate as $pod)
+                        <?php $count = $pod->products->count() ?>
                         <ul>
-
-                            <li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-                            <li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-                            <li class="filter-list"><input class="pixel-radio" type="radio" id="gionee" name="brand"><label for="gionee">Gionee<span>(19)</span></label></li>
-                            <li class="filter-list"><input class="pixel-radio" type="radio" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
-                            <li class="filter-list"><input class="pixel-radio" type="radio" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
-
+                            <li class="filter-list"><input class="pixel-radio" type="checkbox" id="apple"
+                                    name="brand" wire:model="search"><label>{{$pod->name}}<span>({{$count}})</span></label></li>
                         </ul>
+                        @endforeach
                     </form>
                 </div>
                 <div class="common-filter">
                     <div class="head">Size</div>
                     <form action="#">
                         <ul>
-
-                            <li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-                            <li class="filter-list"><input class="pixel-radio" type="radio" id="balckleather" name="color"><label for="balckleather">Black
-                                    Leather<span>(29)</span></label></li>
-                            <li class="filter-list"><input class="pixel-radio" type="radio" id="blackred" name="color"><label for="blackred">Black
-                                    with red<span>(19)</span></label></li>
-                            <li class="filter-list"><input class="pixel-radio" type="radio" id="gold" name="color"><label for="gold">Gold<span>(19)</span></label></li>
-                            <li class="filter-list"><input class="pixel-radio" type="radio" id="spacegrey" name="color"><label for="spacegrey">Spacegrey<span>(19)</span></label></li>
-
+                            <li class="filter-list"><input class="pixel-radio" type="checkbox" id="black"
+                                    name="color"><label for="black">39MM</label></li>
+                            <li class="filter-list"><input class="pixel-radio" type="checkbox" id="balckleather"
+                                    name="color"><label for="balckleather">40MM</label></li>
+                            <li class="filter-list"><input class="pixel-radio" type="checkbox" id="blackred"
+                                    name="color"><label for="blackred">36MM</label></li>
                         </ul>
                     </form>
                 </div>
@@ -203,10 +198,10 @@
                     <div class="head">Wieght</div>
                     <form action="#">
                         <ul>
-                            <li class="filter-list"><input class="pixel-radio" type="radio" id="black"
-                                    name="color"><label for="black">58.5GM<span>(29)</span></label></li>
-                            <li class="filter-list"><input class="pixel-radio" type="radio" id="balckleather"
-                                    name="color"><label for="balckleather">48.9GM<span>(29)</span></label></li>
+                            <li class="filter-list"><input class="pixel-radio" type="checkbox" id="black"
+                                    name="color"><label for="black">58.5GM</label></li>
+                            <li class="filter-list"><input class="pixel-radio" type="checkbox" id="balckleather"
+                                    name="color"><label for="balckleather">48.9GM</label></li>
                         </ul>
                     </form>
                 </div>

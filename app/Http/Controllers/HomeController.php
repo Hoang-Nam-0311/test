@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Livewire\Home;
 use App\Models\Customer;
 use App\Models\Category;
 use App\Models\Product;
@@ -13,12 +14,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // $products = Product::orderBy('id', 'DESC')->limit(6)->get();
+        $products= Product::orderBy('id','DESC')->limit(6)->get();
+        
 
-        $newProducts = Product::orderBy('id', 'DESC')->limit(8)->get();
+        $productroll=Product::orderBy('id','DESC')->limit(2)->get();
+        $newProducts = Product::orderBy('id','DESC')->limit(8)->get();
         $randomProducts = Product::inRandomOrder()->limit(8)->get();
-        // $saleProducts = Product::orderBy('sale_price','ASC')->where('sale_price','>',0)->limit(8)->get();
-        return view('home', compact('newProducts', 'randomProducts'));
+        
+        return view('home', compact('newProducts','randomProducts','products','productroll'));
     }
 
     public function about()
@@ -63,15 +66,20 @@ class HomeController extends Controller
     public function profile()
     {
         $auth = Auth::guard('cus')->user();
-        // dd ($auth);
         return view('home.profile', compact('auth'));
     }
 
     public function category(Category $cat)
     {
-        $products = $cat->products()->paginate(12);
+        // $brand = Product::where('category_id', $cat->id)->count();
 
-        return view('category', compact('cat', 'products'));
+        // dd($brand);
+        // $brand1 = Product::where('category_id', $cat->id)->count();
+
+        $cate = Category::all();
+        $products = $cat->products()->paginate(12);
+       
+        return view('category', compact('cat','products','cate'));
     }
 
     public function contact()
