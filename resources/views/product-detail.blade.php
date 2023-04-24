@@ -7,11 +7,11 @@
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
-                <h1>Product Details Page</h1>
+                <h1>Constellation</h1>
                 <nav class="d-flex align-items-center">
-                    <a href="{{route('home.index')}}">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="{{route('home.index')}}">Shop<span class="lnr lnr-arrow-right"></span></a>
                     <a href="{{route('home.category', $product->cat->id)}}">{{$product->cat->name}}<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="single-product.html">Product Detail</a>
+                    <a href="single-product.html">{{$product->name}}</a>
                 </nav>
             </div>
         </div>
@@ -39,16 +39,22 @@
             <div class="col-lg-5 offset-lg-1">
                 <div class="s_product_text">
                     <h3>{{$product->name}}</h3>
-                    <h2>${{number_format($product->sale_price)}}</h2>
+                    <div class="nam">
+ <h2>£{{$product->price}}.00</h2><h4>(12 month warranty)</h4>
+                    </div>
+                   
 
                     <ul class="list">
-                        <li><a class="active" href="{{route('home.category', $product->cat->id)}}"><span>Category</span>
+                        <li><a class="active" href="{{route('home.category', $product->cat->id)}}"><span>Brands</span>
                                 : {{$product->cat->name}}</a></li>
                         <li><a href="#"><span>Availibility</span> : In Stock</a></li>
                     </ul>
-                    <p>{{$product->content}}</p>
-
+                    <p style="margin-top:20px;"> {{$product->content}}</p>
+                    <hr>
+                    <button type="button" class="btn btn-outline-secondary">Secondary</button>
+                    <button type="button" class="btn btn-outline-secondary">Secondary</button>
                     <div class="product_count">
+                        <h3>SPECIFICATIONS</h3>
                         <label for="qty">Size:</label>
                         <div class="form-group">
                             <select class="form-control form-control-sm" name="" id="">
@@ -64,8 +70,15 @@
                         </div>
                     </div>
                     <div class="card_area d-flex align-items-center">
+                        <div class="product_count">
+
+							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+							 class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+							 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+						</div>
                         <a class="primary-btn" href="{{route('cart.add', $product->id)}}">Add to Cart</a>
-                        <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
                         <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
                     </div>
                 </div>

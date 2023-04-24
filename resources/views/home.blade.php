@@ -169,6 +169,7 @@
         </div>
         <div class="row">
             <!-- single product -->
+        
             @foreach($products as $prod)
             <div class="col-lg-4 col-md-6">
 
@@ -177,8 +178,8 @@
                     <div class="product-details">
                         <h6>{{$prod->name}}</h6>
                         <div class="price">
-                            <h6>${{$prod->price}}</h6>
-                            <!-- <h6 class="l-through">${{number_format($prod->price)}}</h6> -->
+                            <h6>£{{$prod->price}}</h6>
+                            
                         </div>
                         <div class="prd-bottom">
 
@@ -251,7 +252,7 @@
                         <img class="img-fluid" src="{{url('uploads')}}/{{$prod->image}}" alt="">
                         <div class="product-details">
                             <div class="price">
-                                <h6>${{$prod->price}}</h6>
+                                <h6>£{{$prod->price}}</h6>
                             </div>
                             <h4>{{$prod->name}}</h4>
                             <div class="add-bag d-flex align-items-center justify-content-center">

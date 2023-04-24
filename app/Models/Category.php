@@ -17,6 +17,11 @@ class Category extends Model
         return $this->hasMany(Product::class, 'category_id','id');
     }
 
+    public function cate()
+    {
+        return $this->hasMany(Category::class, 'category_id', 'id')->where('status', '0');
+    }
+
     public function scopeSearch($query, $limit = 5)
     {
         if (request()->keyword) {

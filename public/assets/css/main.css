@@ -100,7 +100,7 @@
     background: -webkit-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
     background: -moz-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
     background: -o-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
-    background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
+    background: linear-gradient(90deg, #ab8370 0%, #c59c87 100%);
 }
 
 .gradient-bg-reverse,
@@ -119,11 +119,20 @@
     background: -webkit-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
     background: -moz-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
     background: -o-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
-    background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
+    background: linear-gradient(90deg, #c9a998 0%, #b69583 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+.nam{
+    display: flex;
+    align-items: center;
+}
+.nam h4{
+    margin-top: -7px;
+    margin-left: 10px;
+    color: #727479;
+}
 /* Start primary btn css
 ============================================================================================ */
 .primary-btn {
@@ -177,7 +186,7 @@ body {
     font-size: 14px;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
-    color: #777777;
+    color: #453e3e;
     background: #fff;
 }
 
@@ -1452,7 +1461,7 @@ h6 {
 
 .header_area .navbar .nav .nav-item:hover .nav-link,
 .header_area .navbar .nav .nav-item.active .nav-link {
-    color: #ffba00;
+    color: #ba917b;
 }
 
 .header_area .navbar .nav .nav-item.submenu {
@@ -1539,8 +1548,9 @@ h6 {
 }
 
 .header_area .navbar .nav .nav-item.submenu ul .nav-item:hover .nav-link {
-    background: #ffba00;
+    background: #ba917b;
     color: #fff;
+    
 }
 
 @media (min-width: 992px) {
@@ -5653,7 +5663,7 @@ label {
     padding-top: 20px;
     border-top: 1px dotted #d5d5d5;
     margin-top: 20px;
-    margin-bottom: 70px;
+    
 }
 
 .s_product_text .card_area .primary-btn {
@@ -5662,6 +5672,7 @@ label {
     text-transform: uppercase;
     margin-right: 10px;
     border-radius: 5px;
+    margin-left: 15px;
 }
 
 .s_product_text .card_area .icon_btn {
@@ -5715,7 +5726,9 @@ label {
 }
 
 .product_count input {
-    width: 76px;
+    margin-top: 19px;
+    width: 68px;
+    height: 38px;
     border: 1px solid #eeeeee;
     border-radius: 3px;
     padding-left: 10px;
@@ -5742,7 +5755,7 @@ label {
 }
 
 .product_count .increase {
-    top: -4px;
+    top: 14px;
 }
 
 .product_count .reduced {
@@ -8365,6 +8378,9 @@ label {
     }
 }
 
+.banner-area .banner-content h1{
+    color: #ffffff;
+}
 
 .banner-content p{
   font-size: 25px;
