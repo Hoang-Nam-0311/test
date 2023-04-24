@@ -85,10 +85,9 @@
                 <small style="color: red; font-style: italic">{{$message}}</small>
                 @enderror
             </div>
-
             <div class="form-group">
                 <label for="">Ảnh</label>
-                <input type="file" class="form-control" name="upload">
+                <input type="file" class="form-control" name="upload" >
                 @error('upload')
                 <small style="color: red; font-style: italic">{{$message}}</small>
                 @enderror

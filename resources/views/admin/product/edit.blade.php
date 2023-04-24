@@ -10,8 +10,7 @@
         <div class="col-md-9">
             <div class="form-group">
                 <label for="">Tên sản phẩm</label>
-                <input type="text" class="form-control" name="name" value="{{$product->name}}"
-                    placeholder="Input field">
+                <input type="text" class="form-control" name="name" value="{{$product->name}}" placeholder="Input field">
                 @error('name')
                 <small style="color: red; font-style: italic">{{$message}}</small>
                 @enderror
@@ -33,24 +32,21 @@
                 <select name="category_id" id="input" class="form-control">
                     <option value="">Chọn danh mục</option>
                     @foreach($cats as $cat)
-                    <option value="{{$cat->id}}" {{$cat->id == $product->category_id ? 'selected' : ''}}>{{$cat->name}}
-                    </option>
+                    <option value="{{$cat->id}}" {{$cat->id == $product->category_id ? 'selected' : ''}}>{{$cat->name}}</option>
                     @endforeach
                 </select>
 
             </div>
             <div class="form-group">
                 <label for="">Giá sản phẩm</label>
-                <input type="text" class="form-control" name="price" value="{{$product->price}}"
-                    placeholder="Input field">
+                <input type="text" class="form-control" name="price"  value="{{$product->price}}" placeholder="Input field">
                 @error('price')
                 <small style="color: red; font-style: italic">{{$message}}</small>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="">Giá KM</label>
-                <input type="text" class="form-control" name="sale_price" value="{{$product->sale_price}}"
-                    placeholder="Input field">
+                <input type="text" class="form-control" name="sale_price"  value="{{$product->sale_price}}" placeholder="Input field">
                 @error('sale_price')
                 <small style="color: red; font-style: italic">{{$message}}</small>
                 @enderror
@@ -73,26 +69,9 @@
                     </label>
                 </div>
             </div>
-
-            <div class="form-group">
-                <label for="">Size</label>
-                <input type="text" class="form-control" name="size" placeholder="Input field">
-                @error('size')
-                <small style="color: red; font-style: italic">{{$message}}</small>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label for="">weight</label>
-                <input type="text" class="form-control" name="weight" placeholder="Input field">
-                @error('weight')
-                <small style="color: red; font-style: italic">{{$message}}</small>
-                @enderror
-            </div>
-
             <div class="form-group">
                 <label for="">Ảnh</label>
-                <input type="file" class="form-control" name="upload">
+                <input type="file" class="form-control" name="upload" >
                 <img src="{{url('uploads')}}/{{$product->image}}" style="width:100%">
                 @error('upload')
                 <small style="color: red; font-style: italic">{{$message}}</small>

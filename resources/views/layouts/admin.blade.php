@@ -208,6 +208,7 @@
       <li>
           <a href="{{route('admin.index')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <small class="label pull-right bg-yellow">12</small>
           </a>
         </li>
         <li class="treeview">
@@ -229,7 +230,7 @@
             <li><a href="{{route('category.create')}}"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
           </ul>
         </li>
-        <!-- <li class="treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-image"></i> <span>QL Banner</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
@@ -246,7 +247,7 @@
             <li><a href="index.html"><i class="fa fa-circle-o"></i> Danh sách</a></li>
             <li><a href="index2.html"><i class="fa fa-circle-o"></i> Thêm mới</a></li>
           </ul>
-        </li> -->
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-user"></i> <span>QL Tài khoản</span> <i class="fa fa-angle-left pull-right"></i>

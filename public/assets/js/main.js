@@ -54,7 +54,7 @@ $(document).ready(function(){
         autoplayTimeout: 5000,
         loop:true,
         nav:true,
-        navText:["<img src='../img/banner/prev.png'>","<img src='../img/banner/next.png'>"],
+        navText:["<img src='img/banner/prev.png'>","<img src='img/banner/next.png'>"],
         dots:false
     });
 
@@ -67,7 +67,7 @@ $(document).ready(function(){
         autoplayTimeout: 5000,
         loop:true,
         nav:true,
-        navText:["<img src='../img/product/prev.png'>","<img src='../img/product/next.png'>"],
+        navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
         dots:false
     });
 
@@ -92,7 +92,7 @@ $(document).ready(function(){
         autoplayTimeout: 5000,
         loop:true,
         nav:true,
-        navText:["<img src='https://preview.colorlib.com/theme/karma/img/product/prev.png.webp'>","<img src='https://preview.colorlib.com/theme/karma/img/product/next.png.webp'>"],
+        navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
         dots:false
     });
 
@@ -255,7 +255,7 @@ $(document).ready(function(){
         noUiSlider.create(nonLinearSlider, {
             connect: true,
             behaviour: 'tap',
-            start: [ 100, 1500 ],
+            start: [ 500, 4000 ],
             range: {
                 // Starting at 500, step the value by 500,
                 // until 4000 is reached. From there, step by 1000.
