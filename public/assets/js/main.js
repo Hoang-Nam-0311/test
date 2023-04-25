@@ -92,7 +92,7 @@ $(document).ready(function(){
         autoplayTimeout: 5000,
         loop:true,
         nav:true,
-        navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
+        navText:["<img src='https://preview.colorlib.com/theme/karma/img/product/prev.png.webp'>","<img src='https://preview.colorlib.com/theme/karma/img/product/next.png.webp'>"],
         dots:false
     });
 

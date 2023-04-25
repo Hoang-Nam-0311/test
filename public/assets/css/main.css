@@ -5661,7 +5661,6 @@ label {
 
 .s_product_text p {
     padding-top: 20px;
-    border-top: 1px dotted #d5d5d5;
     margin-top: 20px;
     
 }
@@ -8423,11 +8422,7 @@ label {
     color: #6f6f6f;
 }
 
-.btn-outline-primary:hover{
-    color: #fff;
-    background-color: #007bff ;
- 
-}
+
 .review label{
     font-size: 17px;
     font-weight: 500;
@@ -8472,5 +8467,12 @@ label {
 }
 .modal-content{
     margin-top: 130px;
+}
+
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #007bff;
+
 }
 /*# sourceMappingURL=main.css.map */
