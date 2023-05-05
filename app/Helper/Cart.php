@@ -24,8 +24,10 @@ class Cart {
                 'id' => $id,
                 'name' => $prod->name,
                 'image' => $prod->image,
-                'price' => $prod->sale_price > 0 ? $prod->sale_price : $prod->price,
-                'quantity' => $quantity
+                'price' => $prod->price,
+                'quantity' => $quantity,
+                'size' => $prod->size,
+                'weight'=>$prod->weight
             ];
 
             $this->items[$id] = $item;

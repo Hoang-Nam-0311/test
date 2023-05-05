@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    // const CREATED_AT = 'ngay_tao';
+
     protected $fillable = ['name','status'];
     protected $table = 'category';
 

@@ -70,24 +70,30 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-check">
                 <label for="">Size</label>
-                <input type="text" class="form-control" name="size" placeholder="Input field">
-                @error('size')
-                <small style="color: red; font-style: italic">{{$message}}</small>
-                @enderror
+                @foreach($size as $data)
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="id_attr[]" value="{{$data->id}}">
+                    {{$data->value}}
+                </label>
+                @endforeach
             </div>
 
-            <div class="form-group">
-                <label for="">weight</label>
-                <input type="text" class="form-control" name="weight" placeholder="Input field">
-                @error('weight')
-                <small style="color: red; font-style: italic">{{$message}}</small>
-                @enderror
+            <div class="form-check">
+                <label for="">Wieght</label>
+                @foreach($weight as $data)
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="id_attr[]" value="{{$data->id}}">
+                    {{$data->value}}
+                </label>
+                @endforeach
             </div>
+
+
             <div class="form-group">
                 <label for="">Ảnh</label>
-                <input type="file" class="form-control" name="upload" >
+                <input type="file" class="form-control" name="upload">
                 @error('upload')
                 <small style="color: red; font-style: italic">{{$message}}</small>
                 @enderror

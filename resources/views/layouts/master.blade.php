@@ -36,10 +36,11 @@
     @include('layouts.header')
     @yield('main')
     @include('layouts.footer')
+
+
     <!-- End related-product Area -->
     <script src="{{url('')}}/assets/js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
     </script>
     <script src="{{url('')}}/assets/js/vendor/bootstrap.min.js"></script>
     <script src="{{url('')}}/assets/js/jquery.ajaxchimp.min.js"></script>
@@ -54,5 +55,17 @@
     <script src="{{url('')}}/assets/js/gmaps.min.js"></script>
     <script src="{{url('')}}/assets/js/main.js"></script>
 </body>
+
+
+<script>
+    jQuery('.swatch[data-option-index="0"] .size').removeClass('soldout').addClass('available').find(':button').removeAttr('disabled');
+</script>
+
+
+<script>
+    jQuery('.swatch[data-option-index="0"] .weight').removeClass('soldout').addClass('available').find(':button').removeAttr('disabled');
+</script>
+
+
 
 </html>

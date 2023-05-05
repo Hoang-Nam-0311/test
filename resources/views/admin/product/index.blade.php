@@ -17,11 +17,8 @@
             <th>ID</th>
             <th>Name</th>
             <th>Category</th>
-            <!-- <th>Price/ Sale</th> -->
             <th>Price</th>
             <th>Status</th>
-            <th>Size</th>
-            <th>Weight</th>
             <th>Image</th>
         </tr>
     </thead>
@@ -31,11 +28,8 @@
             <td>{{ $product->id }}</td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->cat->name }}</td>
-            <!-- <td>{{ $product->price }}/ {{ $product->sale_price }}</td> -->
             <td>{{ $product->price }}</td>
             <td>{{ $product->status == 0 ? 'Tạm ẩn' : 'Hiển thị' }}</td>
-            <td>{{ $product->size}}</td>
-            <td>{{ $product->weight }}</td>
             <td>
                 <img src="{{url('uploads')}}/{{$product->image}}" width="60">
             </td>

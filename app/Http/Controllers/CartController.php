@@ -28,7 +28,7 @@ class CartController extends Controller
 
     public function update($ids, $quantity, Cart $cart)
     {
-        dd($ids, $quantity, $cart);
+    
         return redirect()->route('cart.view');
     }
 

@@ -1855,7 +1855,7 @@ h6 {
 }
 
 .breadcrumb-banner .col-first {
-    padding-right: 15px;
+    padding-right: 745px !important;
 }
 
 @media (max-width: 1680px) {
@@ -4569,7 +4569,9 @@ label {
 .sorting .nice-select {
     border-radius: 0px;
     border: 1px solid #eee;
-    padding-right: 50px;
+    padding-right: 48px;
+    width: 161px;
+    margin-left: 54px;
 }
 
 .sorting .nice-select:after {
@@ -4580,6 +4582,34 @@ label {
     border-radius: 0px;
 }
 
+.fa-list-ul{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.sorting{
+    display: flex;
+    
+}
+
+.sorting svg{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.l2{
+    margin-left: 20px;
+}
+
+.routead::before{
+    position:absolute;
+    content: "";
+    height: 18px;
+    left: 8%;
+    top: 27px;
+    border-left: 1px solid  black;
+   
+}
 .pagination {
     margin-top: 10px;
     border-left: 1px solid #eee;
@@ -6062,7 +6092,7 @@ label {
 .cart_inner .table tbody tr td .product_count input {
     width: 100px;
     padding-left: 30px;
-    height: 40px;
+    height: 42px;
     outline: none;
     box-shadow: none;
 }
@@ -8469,10 +8499,80 @@ label {
     margin-top: 130px;
 }
 
+.table-size {
+    margin-left: -230px;
+    max-width: 960px;
+    width: 960px;
+    height: 100%;
+    display: flex;
+    /* align-items: center !important;
+    justify-content: center !important;  
+    margin: 0 auto !important; */
+}
 
-.btn-outline-primary:hover {
+.table-modal-info table {
+    width: 100%;
+    table-layout: fixed;
+    /* margin-top: 10px; */
+}
+
+.table-size p {
+    font-size: 16px;
+}
+
+p {
+    line-height: 30px;
+    margin-bottom: 0;
+    letter-spacing: 0;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+}
+
+.cart_inner .table tbody tr td .product_count {
+    margin-bottom: 20px;
+}
+
+.cart_inner .table tbody tr td .product_count .increase {
+    top: 19px;
+}
+
+.modal-body{
+    margin-top: -55px;
+}
+
+.modal-title{
+    margin-left: 410px;
+    margin-top: 40px;
+    margin-bottom: -35px;
+}
+
+/* 
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+} */
+
+
+/* .btn-outline-primary:hover {
     color: #fff;
     background-color: #007bff;
 
+} */
+
+.table-modal-info{
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 30px;
+}
+
+.media-body p{
+    font-weight: 500;
 }
 /*# sourceMappingURL=main.css.map */

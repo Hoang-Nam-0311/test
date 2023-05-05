@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\AttributeController;
 
 
 /*
@@ -25,6 +26,7 @@ Route::group(['prefix' => ''], function () {
     Route::get('/about-us', [HomeController::class, 'about'])->name('home.about');
     Route::get('/contact-us', [HomeController::class, 'contact'])->name('home.contact');
     Route::get('/category/{cat}', [HomeController::class, 'category'])->name('home.category');
+    Route::get('/product', [HomeController::class, 'product'])->name('home.product');
     Route::get('/product-detail/{product}', [HomeController::class, 'productDetail'])->name('home.productDetail');
     Route::get('/login', [HomeController::class, 'login'])->name('home.login');
     Route::get('/register', [HomeController::class, 'register'])->name('home.register');
@@ -32,6 +34,8 @@ Route::group(['prefix' => ''], function () {
     Route::get('/profile', [HomeController::class, 'profile'])->name('home.profile')->middleware('cus');
     Route::post('/login', [HomeController::class, 'check_login']);
     Route::post('/register', [HomeController::class, 'check_register'])->name('home.register');
+    Route::get('/checkout', [HomeController::class, 'checkout'])->name('home.checkout');
+    Route::post('/checkout', [HomeController::class, 'checkout'])->name('home.checkout');
 });
 
 Route::group(['prefix' => 'cart'], function () {
@@ -47,13 +51,15 @@ Route::group(['prefix' => 'cart'], function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
-    Route::resources([
-        'category' => CategoryController::class,
-        'product' => ProductController::class,
-    ]);
+    // Route::resources([
+    //     'category' => CategoryController::class,
+    //     'product' => ProductController::class,
+    // ]);
 
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
+    Route::resource('attribute', SizeController::class);
+
     Route::group(['prefix' => 'category'], function () {
 
         Route::get('/', [CategoryController::class, 'index'])->name('category.index');
@@ -67,6 +73,21 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/update/{cat}', [CategoryController::class, 'update'])->name('category.update');
 
         Route::delete('/delete/{cat}', [CategoryController::class, 'delete'])->name('category.delete');
+    });
+
+    Route::group(['prefix' => 'attribute'], function () {
+
+        Route::get('/', [AttributeController::class, 'index'])->name('attribute.index');
+
+        Route::get('/create', [AttributeController::class, 'create'])->name('attribute.create');
+
+        Route::post('/create', [AttributeController::class, 'store']);
+
+        Route::get('/edit/{attri}', [AttributeController::class, 'edit'])->name('attribute.edit');
+
+        Route::put('/update/{attri}', [AttributeController::class, 'update'])->name('attribute.update');
+
+        Route::delete('/delete/{attri}', [AttributeController::class, 'delete'])->name('attribute.delete');
     });
 
     Route::group(['prefix' => 'product'], function () {

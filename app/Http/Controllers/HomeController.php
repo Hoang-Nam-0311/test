@@ -6,7 +6,7 @@ use App\Models\Customer;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 
 
 class HomeController extends Controller
@@ -33,56 +33,63 @@ class HomeController extends Controller
         return view('login-register');
     }
 
-    public function check_login(Request $req)
+    // public function check_login(Request $req)
+    // {
+    //    $form_data = $req->only('email','password');
+    //    $check = Auth::guard('cus')->attempt($form_data, $req->has('remember'));
+
+    //    if ($check) {
+    //         return redirect()->route('home.index')->with('yes', 'Chào mừng trở lại');
+    //    }
+
+    //    return redirect()->back()->with('no', 'Tài khoản hoặc mật khảu không chính xác');
+
+    // }
+
+    // public function check_register(Request $req)
+    // {
+    //     $form_data = $req->only('name','email','gender','address','phone');
+    //     $form_data['password'] = bcrypt($req->password);
+    //     if (Customer::create($form_data)) {
+    //         return redirect()->route('home.login')->with('Yes', 'Đăng ký thành công, bạn có thể đăng nhập');
+    //     }
+    //     return redirect()->back()->with('No', 'Đăng ký không thành công, hãy thử đăng ký lại thông tin');
+    // }
+    // public function logout()
+    // {
+    //     Auth::guard('cus')->logout();
+    //     return redirect()->route('home.login')->with('yes', 'Đăng xuất thành công, vui lòng đăng nhập lại');
+    // }
+
+    // public function profile()
+    // {
+    //     $auth = Auth::guard('cus')->user();
+    //     return view('home.profile', compact('auth'));
+    // }
+
+    // public function product(Product $product){
+
+    //     $product = Product::all();
+        
+    //     return view('layouts.product', compact('product'));
+    
+
+    // }
+    public function product(Product $product)
     {
-       $form_data = $req->only('email','password');
-       $check = Auth::guard('cus')->attempt($form_data, $req->has('remember'));
+        $cate = Category::all();
+        $product = Product::orderBy('id', 'DESC')->paginate(10);;       
 
-       if ($check) {
-            return redirect()->route('home.index')->with('yes', 'Chào mừng trở lại');
-       }
-
-       return redirect()->back()->with('no', 'Tài khoản hoặc mật khảu không chính xác');
-
-    }
-
-    public function check_register(Request $req)
-    {
-        $form_data = $req->only('name','email','gender','address','phone');
-        $form_data['password'] = bcrypt($req->password);
-        if (Customer::create($form_data)) {
-            return redirect()->route('home.login')->with('Yes', 'Đăng ký thành công, bạn có thể đăng nhập');
-        }
-        return redirect()->back()->with('No', 'Đăng ký không thành công, hãy thử đăng ký lại thông tin');
-    }
-    public function logout()
-    {
-        Auth::guard('cus')->logout();
-        return redirect()->route('home.login')->with('yes', 'Đăng xuất thành công, vui lòng đăng nhập lại');
-    }
-
-    public function profile()
-    {
-        $auth = Auth::guard('cus')->user();
-        return view('home.profile', compact('auth'));
+        return view('product', compact('product', 'cate'));
     }
 
     public function category(Category $cat)
     {
-        // $brand = Product::where('category_id', $cat->id)->count();
-
-        // dd($brand);
-        // $brand1 = Product::where('category_id', $cat->id)->count();
 
         $cate = Category::all();
         $products = $cat->products()->paginate(12);
        
         return view('category', compact('cat','products','cate'));
-    }
-
-    public function product()
-    {
-       
     }
 
     public function contact()
@@ -94,8 +101,14 @@ class HomeController extends Controller
         return view('register');
     }
 
+    public function checkout(){
+        return view('check-out');
+    }
+
+
     public function productDetail(Product $product)
     {
+        
         return view('product-detail', compact('product'));
     }
 }

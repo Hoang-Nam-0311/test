@@ -7,10 +7,10 @@
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
-                <h1>{{$cat->name}} WATCH</h1>
+                <h1> WATCH</h1>
                 <nav class="d-flex align-items-center">
                     <a href="{{ route('home.index') }}">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="">{{$cat->name}}</a>
+                    <a href=""></a>
                 </nav>
             </div>
         </div>
@@ -102,7 +102,7 @@
             <section class="lattest-product-area pb-40 category-list">
                 <div class="row">
                     <!-- single product -->
-                    @foreach($products as $prod)
+                    @foreach($product as $prod)
                     <div class="col-lg-4 col-md-6">
                         <div class="single-product">
                             <img class="img-fluid" src="{{url('uploads')}}/{{$prod->image}}" alt="">
@@ -136,6 +136,11 @@
                     </div>
                     @endforeach
                 </div>
+            </section>
+
+            <section class="trantion">
+    
+
             </section>
             <!-- End Best Seller -->
             <!-- Start Filter Bar -->

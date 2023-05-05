@@ -2,6 +2,10 @@
 
 @section('title','Chi tiết sản phẩm')
 @section('main')
+
+
+
+
 <!-- Start Banner Area -->
 <section class="banner-area organic-breadcrumb">
     <div class="container">
@@ -40,9 +44,10 @@
                 <div class="s_product_text">
                     <h3>{{$product->name}}</h3>
                     <div class="nam">
- <h2>£{{$product->price}}.00</h2><h4>(12 month warranty)</h4>
+                        <h2>£{{$product->price}}.00</h2>
+                        <h4>(12 month warranty)</h4>
                     </div>
-                   
+
 
                     <ul class="list">
                         <li><a class="active" href="{{route('home.category', $product->cat->id)}}"><span>Brands</span>
@@ -52,25 +57,25 @@
                     <p style="margin-top:20px;"> {{$product->content}}</p>
                     <hr>
                     <h3>SPECIFICATIONS</h3>
-                    <div class="weight">
-                        
-                        <label for="">Weight</label>
-                        <div class="buttonfil1">
-                        <button type="button" class="btn btn-outline-primary">58.5 GM</button>
-                        <button type="button" class="btn btn-outline-primary">48.9 GM</button>
+                    <div class="swatch" data-option-index="0">
+                        <div class="weight ">
+                            <label for="">Weight</label>
+                            <div class="buttonfil1 available">
+                                <button type="button" class="btn btn-outline-primary">58.5 GM</button>
+                                <button type="button" class="btn btn-outline-primary">48.9 GM</button>
+                            </div>
                         </div>
-                      
-                    </div>
 
 
-                    <div class="size">
-                        <label for="">Size</label>
-                         <div class="buttonfil2">
-                        <button type="button" class="btn btn-outline-primary">40 MM</button>
-                        <button type="button" class="btn btn-outline-primary">36 MM</button>
-                         </div>
-                       
+                        <div class="size">
+                            <label for="">Size</label>
+                            <div class="buttonfil2 available">
+                                <button type="button" class="btn btn-outline-primary">40 MM</button>
+                                <button type="button" class="btn btn-outline-primary">36 MM</button>
+                            </div>
+                        </div>
                     </div>
+
 
                     <hr>
 
@@ -86,38 +91,163 @@
 
                         <div class="viewsize">
                             <i class="fa fa-book" aria-hidden="true" data-toggle="modal" data-target="#exampleModal"></i>
-                            <label for=""  data-toggle="modal" data-target="#exampleModal">SIZEGUIDE</label>
+                            <label for="" data-toggle="modal" data-target="#exampleModal">SIZEGUIDE</label>
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">SIZE GUIDE</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <p>This is an approximate conversion table to help you find your size.</p>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
+                                    <div class="table-size">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">SIZE GUIDE</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <p>This is an approximate conversion table to help you find your size.</p>
+
+                                            <div class="modal-body">
+
+                                                <table class="table-modal-info">
+                                                    <thead>
+                                                        <tr style="background: #f7f8fa;">
+                                                            <th>Italian</th>
+                                                            <th>Spanish</th>
+                                                            <th>German</th>
+                                                            <th>UK</th>
+                                                            <th>US</th>
+                                                            <th>Japanese</th>
+                                                            <th>Chinese</th>
+                                                            <th>Russian</th>
+                                                            <th>Korean</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>34</td>
+                                                            <td>30</td>
+                                                            <td>28</td>
+                                                            <td>4</td>
+                                                            <td>00</td>
+                                                            <td>3</td>
+                                                            <td>155/75A</td>
+                                                            <td>36</td>
+                                                            <td>44</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>36</td>
+                                                            <td>32</td>
+                                                            <td>30</td>
+                                                            <td>6</td>
+                                                            <td>0</td>
+                                                            <td>5</td>
+                                                            <td>155/80A</td>
+                                                            <td>38</td>
+                                                            <td>44</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>38</td>
+                                                            <td>34</td>
+                                                            <td>32</td>
+                                                            <td>8</td>
+                                                            <td>2</td>
+                                                            <td>7</td>
+                                                            <td>160/84A</td>
+                                                            <td>40</td>
+                                                            <td>55</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>40</td>
+                                                            <td>36</td>
+                                                            <td>34</td>
+                                                            <td>10</td>
+                                                            <td>4</td>
+                                                            <td>9</td>
+                                                            <td>165/88A</td>
+                                                            <td>42</td>
+                                                            <td>55</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>42</td>
+                                                            <td>38</td>
+                                                            <td>36</td>
+                                                            <td>12</td>
+                                                            <td>6</td>
+                                                            <td>11</td>
+                                                            <td>170/92A</td>
+                                                            <td>44</td>
+                                                            <td>66</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>44</td>
+                                                            <td>40</td>
+                                                            <td>38</td>
+                                                            <td>14</td>
+                                                            <td>8</td>
+                                                            <td>13</td>
+                                                            <td>175/96A</td>
+                                                            <td>46</td>
+                                                            <td>66</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>46</td>
+                                                            <td>42</td>
+                                                            <td>40</td>
+                                                            <td>16</td>
+                                                            <td>10</td>
+                                                            <td>15</td>
+                                                            <td>170/98A</td>
+                                                            <td>48</td>
+                                                            <td>77</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>48</td>
+                                                            <td>44</td>
+                                                            <td>42</td>
+                                                            <td>18</td>
+                                                            <td>12</td>
+                                                            <td>17</td>
+                                                            <td>170/100B</td>
+                                                            <td>50</td>
+                                                            <td>77</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>50</td>
+                                                            <td>46</td>
+                                                            <td>44</td>
+                                                            <td>20</td>
+                                                            <td>14</td>
+                                                            <td>19</td>
+                                                            <td>175/100B</td>
+                                                            <td>52</td>
+                                                            <td>88</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>52</td>
+                                                            <td>48</td>
+                                                            <td>46</td>
+                                                            <td>22</td>
+                                                            <td>16</td>
+                                                            <td>21</td>
+                                                            <td>180/104B</td>
+                                                            <td>54</td>
+                                                            <td>88</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
-                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card_area d-flex align-items-center">
                         <div class="product_count">
 
-							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-							 class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-							 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
-						</div>
+                            <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )  &sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                        </div>
                         <a class="primary-btn" href="{{route('cart.add', $product->id)}}">Add to Cart</a>
                         <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
                     </div>
@@ -134,20 +264,16 @@
     <div class="container">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                    aria-selected="true">Description</a>
+                <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Description</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                    aria-controls="profile" aria-selected="false">Specification</a>
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Specification</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                    aria-controls="contact" aria-selected="false">Comments</a>
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Comments</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab"
-                    aria-controls="review" aria-selected="false">Reviews</a>
+                <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Reviews</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -276,7 +402,7 @@
                                         <img src="img/product/review-2.png" alt="">
                                     </div>
                                     <div class="media-body">
-                                        <h4>Hữu Bách</h4>
+                                        <h4>Phan Trần Bảo Lâm</h4>
                                         <h5>12th Feb, 2018 at 05:56 pm</h5>
                                         <a class="reply_btn" href="#">Reply</a>
                                     </div>
@@ -289,7 +415,7 @@
                                         <img src="img/product/review-3.png" alt="">
                                     </div>
                                     <div class="media-body">
-                                        <h4>Mạnh Cường </h4>
+                                        <h4>Phạm QUốc Hưng</h4>
                                         <h5>12th Feb, 2018 at 05:56 pm</h5>
                                         <a class="reply_btn" href="#">Reply</a>
                                     </div>
@@ -302,30 +428,25 @@
                     <div class="col-lg-6">
                         <div class="review_box">
                             <h4>Post a comment</h4>
-                            <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
-                                novalidate="novalidate">
+                            <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="name" name="name"
-                                            placeholder="Your Full name">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Full name">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="email" name="email"
-                                            placeholder="Email Address">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="number" name="number"
-                                            placeholder="Phone Number">
+                                        <input type="text" class="form-control" id="number" name="number" placeholder="Phone Number">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" name="message" id="message" rows="1"
-                                            placeholder="Message"></textarea>
+                                        <textarea class="form-control" name="message" id="message" rows="1" placeholder="Message"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-right">
@@ -351,21 +472,11 @@
                                 <div class="rating_list">
                                     <h3>Based on 3 Reviews</h3>
                                     <ul class="list">
-                                        <li><a href="#">5 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                    class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                    class="fa fa-star"></i> 01</a></li>
-                                        <li><a href="#">4 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                    class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                    class="fa fa-star"></i> 01</a></li>
-                                        <li><a href="#">3 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                    class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                    class="fa fa-star"></i> 01</a></li>
-                                        <li><a href="#">2 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                    class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                    class="fa fa-star"></i> 01</a></li>
-                                        <li><a href="#">1 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                    class="fa fa-star"></i><i class="fa fa-star"></i><i
-                                                    class="fa fa-star"></i> 01</a></li>
+                                        <li><a href="#">5 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
+                                        <li><a href="#">4 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
+                                        <li><a href="#">3 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
+                                        <li><a href="#">2 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
+                                        <li><a href="#">1 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -435,34 +546,25 @@
                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
                             </ul>
                             <p>Outstanding</p>
-                            <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
-                                novalidate="novalidate">
+                            <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="name" name="name"
-                                            placeholder="Your Full name" onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Your Full name'">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Full name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Full name'">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="email" name="email"
-                                            placeholder="Email Address" onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Email Address'">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="number" name="number"
-                                            placeholder="Phone Number" onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Phone Number'">
+                                        <input type="text" class="form-control" id="number" name="number" placeholder="Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" name="message" id="message" rows="1"
-                                            placeholder="Review" onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Review'"></textarea></textarea>
+                                        <textarea class="form-control" name="message" id="message" rows="1" placeholder="Review" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Review'"></textarea></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-right">
@@ -477,4 +579,25 @@
     </div>
 </section>
 <!--================End Product Description Area =================-->
+<!-- <script>
+    // const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+
+    const tabs = $$(".tab-item");
+    const tabss = $$(".tab-item1");
+
+
+    tabs.forEach((tab, index) => {
+        tab.onclick = function() {
+            this.classList.add("active");
+
+        }
+    })
+    
+
+
+
+    console.log(tabs);
+</script> -->
+
 @stop()
