@@ -13,25 +13,43 @@ class Cart {
         $this->totalQuantity = $this->setTotalQuantity();
     }
 
-    public function create($prod, $quantity = 1)
+
+    public function checkAttrExist($dataAttr){
+        foreach($this->items as $item){
+            if(is_array($dataAttr['attr_id'])){
+                foreach($dataAttr['attr_id'] as $attr){
+                    if (in_array($attr,$item->attr_id))
+                    return false;
+                }
+                
+            }
+           
+        }
+        return true;
+    }
+
+    public function create($prod, $dataAttr)
     {
         $id = $prod->id;
-
-        if (isset($this->items[$id])) {
-            $this->items[$id]->quantity += $quantity;
+        // dd($dataAttr['attr_id'], $this->items[$id]->attr_id);
+        if (isset($this->items[$id]) && $this->checkAttrExist($dataAttr)) {
+            $this->items[$id]->quantity += $dataAttr['quantity'];
         } else {
             $item = (object) [
                 'id' => $id,
                 'name' => $prod->name,
                 'image' => $prod->image,
                 'price' => $prod->price,
-                'quantity' => $quantity,
-                'size' => $prod->size,
-                'weight'=>$prod->weight
+                'quantity' => $dataAttr['quantity'],
+                'attr_id' => $dataAttr['attr_id'],
             ];
-
+            
             $this->items[$id] = $item;
-        }
+            
+        } 
+        
+        
+        // dd($this->items);
         
         session(['cart' => $this->items]);
     }
@@ -63,6 +81,7 @@ class Cart {
         $total = 0;
 
         foreach($this->items as $item) {
+            
             $total += $item->quantity * $item->price;
         }
 

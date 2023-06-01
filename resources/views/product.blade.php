@@ -2,7 +2,7 @@
 
 @section('title','Danh mục')
 @section('main')
-<!-- Start Banner Area -->
+
 <section class="banner-area organic-breadcrumb">
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -10,13 +10,13 @@
                 <h1> WATCH</h1>
                 <nav class="d-flex align-items-center">
                     <a href="{{ route('home.index') }}">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a href=""></a>
+                    <a href="">Products</a>
                 </nav>
             </div>
         </div>
     </div>
 </section>
-<!-- End Banner Area -->
+
 <div class="container">
     <div class="row">
         <div class="col-xl-3 col-lg-4 col-md-5">
@@ -31,44 +31,47 @@
                         @foreach ($cate as $pod)
                         <?php $count = $pod->products->count() ?>
                         <ul>
-                            <li class="filter-list"><input class="pixel-radio" type="checkbox" id="apple" name="brand" wire:model="search"><label>{{$pod->name}}<span>({{$count}})</span></label></li>
+                            <li class="filter-list"><input class="pixel-radio category-filter" type="checkbox" value="{{$pod->id}}" data-filter="category" name="category-filter"><label>{{$pod->name}}<span>({{$count}})</span></label></li>
                         </ul>
                         @endforeach
                     </form>
                 </div>
-                <div class="common-filter">
-                    <div class="head">Size</div>
-                    <form action="#">
-                        <ul>
-                            <li class="filter-list"><input class="pixel-radio" type="checkbox" id="black" name="color"><label for="black">39MM</label></li>
-                            <li class="filter-list"><input class="pixel-radio" type="checkbox" id="balckleather" name="color"><label for="balckleather">40MM</label></li>
-                            <li class="filter-list"><input class="pixel-radio" type="checkbox" id="blackred" name="color"><label for="blackred">36MM</label></li>
-                        </ul>
-                    </form>
-                </div>
 
                 <div class="common-filter">
-                    <div class="head">Wieght</div>
-                    <form action="#">
+                    <div class="head">Size</div>
+                    @foreach ( $sizes as $value)
+                    <form action="">
                         <ul>
-                            <li class="filter-list"><input class="pixel-radio" type="checkbox" id="black" name="color"><label for="black">58.5GM</label></li>
-                            <li class="filter-list"><input class="pixel-radio" type="checkbox" id="balckleather" name="color"><label for="balckleather">48.9GM</label></li>
+                            <li class="filter-list"><input class="pixel-radio" id="size" type="checkbox" value="?size={{$value->id}}"><label for="black">{{$value->value}}MM</label></li>
                         </ul>
                     </form>
+                    @endforeach
+                </div>
+
+                <div class=" common-filter">
+                    <div class="head">Wieght</div>
+                    @foreach ( $weights as $value)
+                    <form action="">
+                        <ul>
+                            <li class="filter-list"><input class="pixel-radio" id="wieght" type="checkbox" value="?weight={{$value->id}}"><label for="black">{{$value->value}}GM</label></li>
+                        </ul>
+                    </form>
+                    @endforeach
                 </div>
 
                 <div class="common-filter">
                     <div class="head">Price</div>
                     <div class="price-range-area">
-                        <div id="price-range"></div>
-                        <div class="value-wrapper d-flex">
-                            <div class="price">Price:</div>
-                            <span>£</span>
-                            <div id="lower-value"></div>
-                            <div class="to">to</div>
-                            <span>£</span>
-                            <div id="upper-value"></div>
-                        </div>
+                        <form >
+                            <div id="slider-range"></div>
+                            <input type="text" id="amount" style="border:0; color:#000000; font-weight:bold;">
+
+                            <input type="hidden" name="start_price" id="start_price">
+
+                            <input type="hidden" name="end_price" id="end_price">
+                            <br>
+                            <input type="submit" name="filter_price" value="Filter" class="btn btn-sm btn-default">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -84,16 +87,12 @@
                     <i class="fa-solid fa-list-ul l2"></i>
                 </div>
                 <div class="sorting mr-auto">
-                    <select>
-                        <option value="1">Featured</option>
-                        <option value="1">Best Selling</option>
-                        <option value="1">Alphabetically, A-Z</option>
-                        <option value="1">Alphabetically, Z-A</option>
-                        <option value="1">Price, low to high</option>
-                        <option value="1">Price, high to low</option>
-                        <option value="1">Date, new to old</option>
-                        <option value="1">Date, old to new</option>
-
+                    <select name="sort" id="sort">
+                        <option value="{{Request::url()}}?sort_by=none">Featured</option>
+                        <option value="{{Request::url()}}?sort_by=az">Alphabetically, A-Z</option>
+                        <option value="{{Request::url()}}?sort_by=za">Alphabetically, Z-A</option>
+                        <option value="{{Request::url()}}?sort_by=tang_dan">Price, low to high</option>
+                        <option value="{{Request::url()}}?sort_by=giam_dan">Price, high to low</option>
                     </select>
                 </div>
             </div>
@@ -110,10 +109,8 @@
                                 <h6>{{$prod->name}}</h6>
                                 <div class="price">
                                     <h6>£{{$prod->price}}</h6>
-                                    <!-- <h6 class="l-through">${{number_format($prod->price)}}</h6> -->
                                 </div>
                                 <div class="prd-bottom">
-
                                     <a href="{{route('cart.add', $prod->id)}}" class="social-info">
                                         <span class="ti-bag"></span>
                                         <p class="hover-text">add to bag</p>
@@ -134,29 +131,15 @@
                             </div>
                         </div>
                     </div>
+
                     @endforeach
                 </div>
             </section>
 
             <section class="trantion">
-    
+
 
             </section>
-            <!-- End Best Seller -->
-            <!-- Start Filter Bar -->
-            <div class="filter-bar d-flex flex-wrap align-items-center">
-
-                <div class="pagination">
-                    <a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-                    <a href="#" class="active">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-                    <a href="#">6</a>
-                    <a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                </div>
-            </div>
-            <!-- End Filter Bar -->
         </div>
     </div>
 </div>

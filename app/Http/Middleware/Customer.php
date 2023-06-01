@@ -16,11 +16,7 @@ class Customer
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::guard('cus')->check()) {
-            return $next($request);
-        }
-
-        return redirect()->route('home.login')->with('no','Hãy đăng nhập để tiếp tục chức năng này');
+       
         
     }
 }

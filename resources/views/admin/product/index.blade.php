@@ -16,10 +16,12 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Category</th>
+            <th>Category_id</th>
             <th>Price</th>
             <th>Status</th>
+            <th>Atrribute</th>
             <th>Image</th>
+
         </tr>
     </thead>
     <tbody>
@@ -36,10 +38,8 @@
             <td class="text-right">
                 <form action="{{route('product.destroy', $product->id)}}" method="post">
                     @csrf @method('DELETE')
-                    <a href="{{route('product.edit', $product->id)}}" class="btn btn-primary"><i
-                            class="fa fa-edit"></i></a>
-                    <button class="btn btn-danger" onclick="return confirm('Chắc chưa?')"><i
-                            class="fa fa-trash"></i></button>
+                    <a href="{{route('product.edit', $product->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                    <button class="btn btn-danger" onclick="return confirm('Chắc chưa?')"><i class="fa fa-trash"></i></button>
                 </form>
 
             </td>

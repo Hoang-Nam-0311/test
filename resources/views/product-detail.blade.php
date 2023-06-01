@@ -26,6 +26,7 @@
 <!--================Single Product Area =================-->
 <div class="product_image_area">
     <div class="container">
+
         <div class="row s_product_inner">
             <div class="col-lg-6">
                 <div class="s_Product_carousel">
@@ -47,210 +48,213 @@
                         <h2>£{{$product->price}}.00</h2>
                         <h4>(12 month warranty)</h4>
                     </div>
-
-
                     <ul class="list">
                         <li><a class="active" href="{{route('home.category', $product->cat->id)}}"><span>Brands</span>
                                 : {{$product->cat->name}}</a></li>
-                        <li><a href="#"><span>Availibility</span> : In Stock</a></li>
+                        <li><a><span>Availibility</span> : In Stock</a></li>
                     </ul>
                     <p style="margin-top:20px;"> {{$product->content}}</p>
                     <hr>
                     <h3>SPECIFICATIONS</h3>
-                    <div class="swatch" data-option-index="0">
-                        <div class="weight ">
-                            <label for="">Weight</label>
-                            <div class="buttonfil1 available">
-                                <button type="button" class="btn btn-outline-primary">58.5 GM</button>
-                                <button type="button" class="btn btn-outline-primary">48.9 GM</button>
+                    <form action="{{route('cart.add', $product)}}" method="get">
+                        <div class="swatch" data-option-index="0">
+                            <div class="weight">
+                                <label for="">Weight</label>
+                                <select name="attr_id[]" id="">
+                                    @foreach ( $weight as $value)
+                                    @if ($value->name == 'wieght')
+                                    <option value="{{$value->id}}">{{$value->value}}</option>
+                                    @endif
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="size">
+                                <label for="">Size</label>
+                                <select name="attr_id[]" id="" class="select_size">
+                                    @foreach ( $size as $value)
+                                    @if ($value->name == 'size')
+                                    <option value="{{$value->id}}">{{$value->value}}</option>
+                                    @endif
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
-
-
-                        <div class="size">
-                            <label for="">Size</label>
-                            <div class="buttonfil2 available">
-                                <button type="button" class="btn btn-outline-primary">40 MM</button>
-                                <button type="button" class="btn btn-outline-primary">36 MM</button>
+                        <hr>
+                        <div class="review">
+                            <label for="">NO REVIEWS</label>
+                            <div class="star">
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
                             </div>
-                        </div>
-                    </div>
 
+                            <div class="viewsize">
+                                <i class="fa fa-book" aria-hidden="true" data-toggle="modal" data-target="#exampleModal"></i>
+                                <label for="" data-toggle="modal" data-target="#exampleModal">SIZEGUIDE</label>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="table-size">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">SIZE GUIDE</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <p>This is an approximate conversion table to help you find your size.
+                                                </p>
 
-                    <hr>
+                                                <div class="modal-body">
 
-                    <div class="review">
-                        <label for="">NO REVIEWS</label>
-                        <div class="star">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-
-                        <div class="viewsize">
-                            <i class="fa fa-book" aria-hidden="true" data-toggle="modal" data-target="#exampleModal"></i>
-                            <label for="" data-toggle="modal" data-target="#exampleModal">SIZEGUIDE</label>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="table-size">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">SIZE GUIDE</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
+                                                    <table class="table-modal-info">
+                                                        <thead>
+                                                            <tr style="background: #f7f8fa;">
+                                                                <th>Italian</th>
+                                                                <th>Spanish</th>
+                                                                <th>German</th>
+                                                                <th>UK</th>
+                                                                <th>US</th>
+                                                                <th>Japanese</th>
+                                                                <th>Chinese</th>
+                                                                <th>Russian</th>
+                                                                <th>Korean</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>34</td>
+                                                                <td>30</td>
+                                                                <td>28</td>
+                                                                <td>4</td>
+                                                                <td>00</td>
+                                                                <td>3</td>
+                                                                <td>155/75A</td>
+                                                                <td>36</td>
+                                                                <td>44</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>36</td>
+                                                                <td>32</td>
+                                                                <td>30</td>
+                                                                <td>6</td>
+                                                                <td>0</td>
+                                                                <td>5</td>
+                                                                <td>155/80A</td>
+                                                                <td>38</td>
+                                                                <td>44</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>38</td>
+                                                                <td>34</td>
+                                                                <td>32</td>
+                                                                <td>8</td>
+                                                                <td>2</td>
+                                                                <td>7</td>
+                                                                <td>160/84A</td>
+                                                                <td>40</td>
+                                                                <td>55</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>40</td>
+                                                                <td>36</td>
+                                                                <td>34</td>
+                                                                <td>10</td>
+                                                                <td>4</td>
+                                                                <td>9</td>
+                                                                <td>165/88A</td>
+                                                                <td>42</td>
+                                                                <td>55</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>42</td>
+                                                                <td>38</td>
+                                                                <td>36</td>
+                                                                <td>12</td>
+                                                                <td>6</td>
+                                                                <td>11</td>
+                                                                <td>170/92A</td>
+                                                                <td>44</td>
+                                                                <td>66</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>44</td>
+                                                                <td>40</td>
+                                                                <td>38</td>
+                                                                <td>14</td>
+                                                                <td>8</td>
+                                                                <td>13</td>
+                                                                <td>175/96A</td>
+                                                                <td>46</td>
+                                                                <td>66</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>46</td>
+                                                                <td>42</td>
+                                                                <td>40</td>
+                                                                <td>16</td>
+                                                                <td>10</td>
+                                                                <td>15</td>
+                                                                <td>170/98A</td>
+                                                                <td>48</td>
+                                                                <td>77</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>48</td>
+                                                                <td>44</td>
+                                                                <td>42</td>
+                                                                <td>18</td>
+                                                                <td>12</td>
+                                                                <td>17</td>
+                                                                <td>170/100B</td>
+                                                                <td>50</td>
+                                                                <td>77</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>50</td>
+                                                                <td>46</td>
+                                                                <td>44</td>
+                                                                <td>20</td>
+                                                                <td>14</td>
+                                                                <td>19</td>
+                                                                <td>175/100B</td>
+                                                                <td>52</td>
+                                                                <td>88</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>52</td>
+                                                                <td>48</td>
+                                                                <td>46</td>
+                                                                <td>22</td>
+                                                                <td>16</td>
+                                                                <td>21</td>
+                                                                <td>180/104B</td>
+                                                                <td>54</td>
+                                                                <td>88</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
-                                            <p>This is an approximate conversion table to help you find your size.</p>
 
-                                            <div class="modal-body">
-
-                                                <table class="table-modal-info">
-                                                    <thead>
-                                                        <tr style="background: #f7f8fa;">
-                                                            <th>Italian</th>
-                                                            <th>Spanish</th>
-                                                            <th>German</th>
-                                                            <th>UK</th>
-                                                            <th>US</th>
-                                                            <th>Japanese</th>
-                                                            <th>Chinese</th>
-                                                            <th>Russian</th>
-                                                            <th>Korean</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>34</td>
-                                                            <td>30</td>
-                                                            <td>28</td>
-                                                            <td>4</td>
-                                                            <td>00</td>
-                                                            <td>3</td>
-                                                            <td>155/75A</td>
-                                                            <td>36</td>
-                                                            <td>44</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>36</td>
-                                                            <td>32</td>
-                                                            <td>30</td>
-                                                            <td>6</td>
-                                                            <td>0</td>
-                                                            <td>5</td>
-                                                            <td>155/80A</td>
-                                                            <td>38</td>
-                                                            <td>44</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>38</td>
-                                                            <td>34</td>
-                                                            <td>32</td>
-                                                            <td>8</td>
-                                                            <td>2</td>
-                                                            <td>7</td>
-                                                            <td>160/84A</td>
-                                                            <td>40</td>
-                                                            <td>55</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>40</td>
-                                                            <td>36</td>
-                                                            <td>34</td>
-                                                            <td>10</td>
-                                                            <td>4</td>
-                                                            <td>9</td>
-                                                            <td>165/88A</td>
-                                                            <td>42</td>
-                                                            <td>55</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>42</td>
-                                                            <td>38</td>
-                                                            <td>36</td>
-                                                            <td>12</td>
-                                                            <td>6</td>
-                                                            <td>11</td>
-                                                            <td>170/92A</td>
-                                                            <td>44</td>
-                                                            <td>66</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>44</td>
-                                                            <td>40</td>
-                                                            <td>38</td>
-                                                            <td>14</td>
-                                                            <td>8</td>
-                                                            <td>13</td>
-                                                            <td>175/96A</td>
-                                                            <td>46</td>
-                                                            <td>66</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>46</td>
-                                                            <td>42</td>
-                                                            <td>40</td>
-                                                            <td>16</td>
-                                                            <td>10</td>
-                                                            <td>15</td>
-                                                            <td>170/98A</td>
-                                                            <td>48</td>
-                                                            <td>77</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>48</td>
-                                                            <td>44</td>
-                                                            <td>42</td>
-                                                            <td>18</td>
-                                                            <td>12</td>
-                                                            <td>17</td>
-                                                            <td>170/100B</td>
-                                                            <td>50</td>
-                                                            <td>77</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>50</td>
-                                                            <td>46</td>
-                                                            <td>44</td>
-                                                            <td>20</td>
-                                                            <td>14</td>
-                                                            <td>19</td>
-                                                            <td>175/100B</td>
-                                                            <td>52</td>
-                                                            <td>88</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>52</td>
-                                                            <td>48</td>
-                                                            <td>46</td>
-                                                            <td>22</td>
-                                                            <td>16</td>
-                                                            <td>21</td>
-                                                            <td>180/104B</td>
-                                                            <td>54</td>
-                                                            <td>88</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card_area d-flex align-items-center">
-                        <div class="product_count">
-
-                            <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )  &sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                        <div class="card_area d-flex align-items-center">
+                            <div class="product_count">
+                                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                                <input type="text" name="quantity" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+                                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )  &sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                            </div>
+                            <button type="submit" class="primary-btn">Add to Cart</button>
+                            <!-- <a class="primary-btn" href="{{route('cart.add', $product->id)}}">Add to Cart</a> -->
+                            <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
                         </div>
-                        <a class="primary-btn" href="{{route('cart.add', $product->id)}}">Add to Cart</a>
-                        <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

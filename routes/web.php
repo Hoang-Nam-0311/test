@@ -9,6 +9,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\AttributeController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,20 +29,22 @@ Route::group(['prefix' => ''], function () {
     Route::get('/category/{cat}', [HomeController::class, 'category'])->name('home.category');
     Route::get('/product', [HomeController::class, 'product'])->name('home.product');
     Route::get('/product-detail/{product}', [HomeController::class, 'productDetail'])->name('home.productDetail');
+    Route::get('/logout', [HomeController::class, 'logout'])->name('home.logout');
     Route::get('/login', [HomeController::class, 'login'])->name('home.login');
     Route::get('/register', [HomeController::class, 'register'])->name('home.register');
     Route::get('/logout', [HomeController::class, 'logout'])->name('home.logout');
     Route::get('/profile', [HomeController::class, 'profile'])->name('home.profile')->middleware('cus');
-    Route::post('/login', [HomeController::class, 'check_login']);
+    Route::post('/login', [HomeController::class, 'checkLogin']);
     Route::post('/register', [HomeController::class, 'check_register'])->name('home.register');
+    Route::get('/verify-account/{token}', [HomeController::class, 'verifyAccount'])->name('index.verify_account');
+    Route::get('/search-products', [HomeController::class, 'search'])->name('home.search');
     Route::get('/checkout', [HomeController::class, 'checkout'])->name('home.checkout');
-    Route::post('/checkout', [HomeController::class, 'checkout'])->name('home.checkout');
 });
 
 Route::group(['prefix' => 'cart'], function () {
-    Route::get('/view', [CartController::class, 'view'])->name('cart.view');
+    Route::get('/view', [CartController::class, 'cart'])->name('cart.view');
     Route::get('/add/{product}', [CartController::class, 'add'])->name('cart.add');
-    Route::get('/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
+    Route::get('/delete/{cartItem}', [CartController::class, 'delete'])->name('cart.delete');
     Route::get('/update/{id}/{quantity?}', [CartController::class, 'update'])->name('cart.update');
     Route::post('/update-all', [CartController::class, 'updateAll'])->name('cart.updateAll');
     Route::get('/clear', [CartController::class, 'clear'])->name('cart.clear');
@@ -50,11 +53,6 @@ Route::group(['prefix' => 'cart'], function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-
-    // Route::resources([
-    //     'category' => CategoryController::class,
-    //     'product' => ProductController::class,
-    // ]);
 
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
@@ -83,11 +81,11 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::post('/create', [AttributeController::class, 'store']);
 
-        Route::get('/edit/{attri}', [AttributeController::class, 'edit'])->name('attribute.edit');
+        Route::get('/edit/{attr}', [AttributeController::class, 'edit'])->name('attribute.edit');
 
-        Route::put('/update/{attri}', [AttributeController::class, 'update'])->name('attribute.update');
+        Route::put('/update/{attr}', [AttributeController::class, 'update'])->name('attribute.update');
 
-        Route::delete('/delete/{attri}', [AttributeController::class, 'delete'])->name('attribute.delete');
+        Route::delete('/delete/{attr}', [AttributeController::class, 'delete'])->name('attribute.delete');
     });
 
     Route::group(['prefix' => 'product'], function () {

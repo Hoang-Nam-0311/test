@@ -105,10 +105,10 @@
 
 .gradient-bg-reverse,
 #search_input_box {
-    background: -webkit-linear-gradient(270deg, #ffba00 0%, #ff6c00 100%);
-    background: -moz-linear-gradient(270deg, #ffba00 0%, #ff6c00 100%);
-    background: -o-linear-gradient(270deg, #ffba00 0%, #ff6c00 100%);
-    background: linear-gradient(270deg, #ffba00 0%, #ff6c00 100%);
+    background: -webkit-linear-gradient(270deg, #ea9c2f 0%, #974c068e 100%);
+    background: -moz-linear-gradient(270deg, #ea9c2f 0%, #974c068e 100%);
+    background: -o-linear-gradient(270deg, #ea9c2f 0%, #974c068e 100%);
+    background: linear-gradient(270deg, #ea9c2f 0%, #974c068e 100%);
 }
 
 .gradient-color,
@@ -116,10 +116,10 @@
 .s_product_text .list li a.active,
 .product_description_area .tab-content .total_rate .box_total h4,
 .single-footer-widget .bb-btn {
-    background: -webkit-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
-    background: -moz-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
-    background: -o-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
-    background: linear-gradient(90deg, #c9a998 0%, #b69583 100%);
+    background: -webkit-linear-gradient(90deg, #ca9127bd 0%, #9e480b 100%);
+    background: -moz-linear-gradient(90deg, #ca9127bd 0%, #9e480b 100%);
+    background: -o-linear-gradient(90deg, #ca9127bd 0%, #9e480b 100%);
+    background: linear-gradient(90deg, #ca9127bd 0%, #9e480b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -1855,7 +1855,7 @@ h6 {
 }
 
 .breadcrumb-banner .col-first {
-    padding-right: 745px !important;
+    padding-right: 768px !important;
 }
 
 @media (max-width: 1680px) {
@@ -5051,7 +5051,7 @@ label {
     top: -5px;
     border-radius: 50%;
     border: 0px;
-    background: #ffba00;
+    background: #bd9079;
     box-shadow: none;
     cursor: pointer;
     -webkit-transition: ease 0.1s;
@@ -5065,7 +5065,7 @@ label {
 }
 
 .price-range-area .noUi-horizontal .noUi-handle:hover {
-    border: 3px solid #ffba00;
+    border: 3px solid #bd9079;
     background: #fff;
 }
 
@@ -8574,5 +8574,45 @@ tr {
 
 .media-body p{
     font-weight: 500;
+}
+
+.qq{
+    position: relative;
+    font-size: 15px;
+    padding: 1px;
+    top: -8%;
+    left: -16%;
+    border: 1px solid black;
+    border: none;
+    border-radius: 50%;
+    background: #bc8f7d;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.nice-select{
+    width: 100px;
+    margin-left: 2px;
+
+}
+
+.select_size{
+    margin-left: 70px;
+}
+
+.primary-btn{
+    border: none;
+}
+
+.order{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.qtyy {
+   
+}
+.alll{
+    margin-left: -25px;
 }
 /*# sourceMappingURL=main.css.map */

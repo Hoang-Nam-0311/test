@@ -35,6 +35,7 @@
 <body>
     @include('layouts.header')
     @yield('main')
+    
     @include('layouts.footer')
 
 
@@ -54,18 +55,79 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="{{url('')}}/assets/js/gmaps.min.js"></script>
     <script src="{{url('')}}/assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
 </body>
 
 
-<script>
-    jQuery('.swatch[data-option-index="0"] .size').removeClass('soldout').addClass('available').find(':button').removeAttr('disabled');
+<script type="text/javascript">
+    $('.category-filter').click(function() {
+        var category = [],
+            tempArray = [];
+
+        $.each($("[data-filter='category']:checked"), function() {
+            tempArray.push($(this).val());
+        });
+        tempArray.reverse();
+
+        if (tempArray.length !== 0) {
+            category += '?categoryId=' + tempArray.toString();
+        }
+
+        window.location.href = category
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('#sort').on('change', function() {
+
+            var url = $(this).val();
+            if (url) {
+                window.location = url;
+            }
+            return false;
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('#size,#wieght').on('change', function() {
+
+            var url = $(this).val();
+            if (url) {
+                window.location = url;
+            }
+            return false;
+        });
+    });
 </script>
 
 
-<script>
-    jQuery('.swatch[data-option-index="0"] .weight').removeClass('soldout').addClass('available').find(':button').removeAttr('disabled');
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#slider-range").slider({
+            orientation: "horizontal",
+            range: true,
+            min:{{$min_price}},
+            max:{{$max_price}},
+            steps:150,
+            values: [ {{$min_price}} , {{$max_price}}  ],
+            slide: function(event, ui) {
+                $("#amount").val("£" + ui.values[0] + " - £" + ui.values[1]);
+                
+                $("#start_price").val(ui.values[0]);
+                $("#end_price").val(ui.values[1]);
+            
+            }
+        });
+        $("#amount").val("£" + $("#slider-range").slider("values", 0) +
+            " - £" + $("#slider-range").slider("values", 1));
+    });
 </script>
-
-
 
 </html>

@@ -1,16 +1,24 @@
 @extends('layouts.admin')
 
-@section('title','Chỉnh sửa danh mục')
+@section('title','Chỉnh sửa thuộc tính')
 
 @section('main')
 
-<form action="{{route('category.update', $cat->id)}}" method="POST" role="form">
+<form action="{{route('attribute.update', $attr->id)}}" method="POST" role="form">
     @csrf @method('PUT')
     <legend>Form title</legend>
 
     <div class="form-group">
         <label for="">Tên danh mục</label>
-        <input type="text" class="form-control" name="name" value="{{$attri->name}}" placeholder="Input field">
+        <input type="text" class="form-control" name="name" placeholder="Input field">
+        @error('name')
+        <small style="color: red; font-style: italic">{{$message}}</small>
+        @enderror
+    </div>
+
+    <div class="form-group">
+        <label for="">Tên thuộc tính</label>
+        <input type="text" class="form-control" name="value" placeholder="Input field">
         @error('name')
         <small style="color: red; font-style: italic">{{$message}}</small>
         @enderror
@@ -18,20 +26,8 @@
 
 
     <div class="form-group">
-        <label for="">trạng thái danh mục</label>
-
-        <div class="radio">
-            <label>
-                <input type="radio" name="status" value="1" {{$attri->status == 1 ? 'checked' : ''}}>
-                Hiển thị
-            </label>
-        </div>
-        <div class="radio">
-            <label>
-                <input type="radio" name="status" value="0" {{$attri->status == 0 ? 'checked' : ''}}>
-                Tạm ẩn
-            </label>
-        </div>
+        <label for="">Description</label>
+        <input type="text" name="description" value="{{$attr->description}}" class="form-control" placeholder="">
 
     </div>
 

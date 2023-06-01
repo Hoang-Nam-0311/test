@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product_attris', function (Blueprint $table) {
+        Schema::create('cart_attrs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_product');
-            $table->integer('id_attr');
-            $table->foreign('id_product')->references('id')->on('products');
-            $table->foreign('id_attr')->references('id')->on('attributes');
+            $table->integer('cart_id')->unsigned();
+            $table->integer('attr_id')->unsigned();
+            $table->foreign('cart_id')->references('id')->on('carts');
+            $table->foreign('attr_id')->references('id')->on('attributes');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_attris');
+        Schema::dropIfExists('cart_attrs');
     }
 };

@@ -36,45 +36,73 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($cart->items as $item)
+                            @foreach($carts as $item)
+
                             <tr>
-                                <input type="hidden" name="id[]" value="{{$item->id}}">
                                 <td>
                                     <div class="media">
                                         <div class="d-flex">
-                                            <img src="{{url('uploads')}}/{{$item->image}}" alt="" width="160" height="160">
+                                            <img src="{{url('uploads')}}/{{$item->cart->image}}" alt="" width="160" height="160">
                                         </div>
                                         <div class="media-body">
-                                            <p>{{$item->name}}</p>
-                                            <p>Size:</p>
-                                            <p>Weight:</p>
+                                            <p>{{$item->cart->name}}</p>
+                                            <div class="">
+                                                <select class="form-select form-select-lg" name="attr_id[]" style="padding-top: 0; padding-bottom: 0; font-size: 18px;">
+                                                    @foreach($item->cart->product_attris as $size)
+                                                    @if($size->name == 'size')
+                                                    <option value="{{$size->id}}" {{$item->cart_attr->contains('id', $size->id) ? 'selected' : ''}}>
+                                                        {{$size->value}}
+                                                    </option>
+                                                    @endif
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <p name=""></p>
+                                            <div class="">
+                                                <select class="form-select form-select-lg" name="attr_id[]" style="padding-top: 0; padding-bottom: 0; font-size: 18px;">
+                                                    @foreach($item->cart->product_attris as $weight)
+                                                    @if($weight->name == 'wieght')
+                                                    <option value="{{$weight->id}}" {{$item->cart_attr->contains('id', $weight->id) ? 'selected' : ''}}>
+                                                        {{$weight->value}}
+                                                    </option>
+                                                    @endif
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
+
+
+
+
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>£{{$item->price}}</h5>
+                                    <h5>£{{$item->cart->price}}</h5>
                                 </td>
                                 <td>
                                     <div class="product_count">
-                                        <input type="text" name="quantity[]" id="sst" value="{{$item->quantity}}" class="input-text qty">
                                         <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                                        <input type="text" name="quantity[]" id="sst" value="{{$item->quantity}}" class="input-text qty">
                                         <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>£{{$item->price * $item->quantity}}</h5>
-                                </td>
-                                <td>
-                                    <a href="{{route('cart.delete', $item->id)}}"><i class="fa fa-times"></i></a>
+                                    <h5>£{{$item->total_price}}</h5>
                                 </td>
 
+
+
+                                <td>
+                                    <a href="{{route('cart.delete', $item->id)}}" onclick="return confirm('Are you ok ?')" style="color: #111;"><i class="fa-solid fa-xmark"></i></a>
+                                </td>
                             </tr>
                             @endforeach
 
 
                             <tr class="bottom_button">
                                 <td>
-                                    <a class="gray_btn" href="#">Continue shopping</a>
+                                    <a class="gray_btn" href="{{route('home.product')}}">Continue shopping</a>
                                 </td>
                                 <td>
 
@@ -101,7 +129,7 @@
                                     <h5>Subtotal</h5>
                                 </td>
                                 <td>
-                                    <h5>${{$cart->totalPrice}}</h5>
+                                    <h5>£{{$subTotal}}</h5>
                                 </td>
                             </tr>
 
@@ -154,7 +182,8 @@
                                     <div class="checkout_btn_inner d-flex align-items-center">
                                         <a class="gray_btn" href="{{route('home.index')}}">
                                             <- Home</a>
-                                                <a class="primary-btn" href="{{route('home.checkout')}}">Proceed to checkout</a>
+                                                <a class="primary-btn" href="{{route('home.checkout')}}">Proceed to
+                                                    checkout</a>
                                     </div>
                                 </td>
                             </tr>

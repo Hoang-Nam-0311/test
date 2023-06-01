@@ -5,8 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Attribute extends Model
+class PasswordReset extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'value', 'description'];
+
+    protected $fillable = ['email', 'token'];
+    // protected $timestamp = false;
+    public $timestamps = false;
 }

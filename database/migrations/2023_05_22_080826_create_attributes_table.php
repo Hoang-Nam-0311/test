@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('attributes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 200);
-            $table->string('value', 100)->unique();
-            $table->tinyInteger('status')->default(0);
+            $table->string('name', 30);
+            $table->string('value', 30)->unique()->nullable();
+            $table->string('description', 255)->nullable();
+            $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

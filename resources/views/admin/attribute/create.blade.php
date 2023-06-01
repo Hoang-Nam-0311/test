@@ -26,20 +26,8 @@
 
 
     <div class="form-group">
-        <label for="">trạng thái danh mục</label>
-
-        <div class="radio">
-            <label>
-                <input type="radio" name="status" value="1" checked>
-                Hiển thị
-            </label>
-        </div>
-        <div class="radio">
-            <label>
-                <input type="radio" name="status" value="0">
-                Tạm ẩn
-            </label>
-        </div>
+        <label for="">Description</label>
+        <input type="text" name="description" class="form-control" placeholder="">
 
     </div>
 

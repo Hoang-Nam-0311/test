@@ -9,12 +9,12 @@ class CategoryController extends Controller
 {
     public function index(Request $req)
     {
-        $cats = Category::orderBy('id', 'DESC')->paginate(5); // SELECT * FROM category
+        $cats = Category::orderBy('id', 'ASC')->paginate(5); 
 
         if ($req->keyword) {
             $cats = Category::where('name', 'like', '%' . $req->keyword . '%')
                 ->orderBy('id', 'DESC')
-                ->paginate(5); // SELECT * FROM category
+                ->paginate(5); 
         }
 
         return view('admin.category.index', compact('cats'));
@@ -38,25 +38,18 @@ class CategoryController extends Controller
 
         $form_data = $req->all('name', 'status');
 
-        Category::create($form_data); // INSERT INTO category.....
+        Category::create($form_data); 
         return redirect()->route('category.index');
     }
 
     public function edit(Category $cat)
     {
-        // $cat = Category::find($id); // select * from category where id = $id
-        // if ($cat) {
-        //     return view('admin.category.edit', compact('cat'));
-        // } else {
-        //     return abort(404); // 405, 419, 403, 500
-        // }
         return view('admin.category.edit', compact('cat'));
     }
 
     public function update(Request $req, Category $cat)
     {
         $req->validate([
-            // 'name' => 'required|min:3|max:100|unique:category,name,'.$cat->id,
             'name' => [
                 'required',
                 'min:3',
@@ -72,7 +65,7 @@ class CategoryController extends Controller
 
         $form_data = $req->all('name', 'status');
 
-        $cat->update($form_data); // INSERT INTO category.....
+        $cat->update($form_data); 
         return redirect()->route('category.index');
     }
 

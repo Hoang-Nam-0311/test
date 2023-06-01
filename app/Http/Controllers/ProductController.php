@@ -15,16 +15,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $req)
+    public function index(Request $req )
     {
-        $products = Product::orderBy('id', 'DESC')->paginate();
-
-        if ($req->keyword) {
-            $products = Product::where('name', 'like', '%' . $req->keyword . '%')
-                ->orderBy('id', 'DESC')
-                ->paginate();
-        }
-
+        $products = Product::orderBy('id', 'ASC')->paginate(9);
+      
         return view('admin.product.index', compact('products'));
     }
 
@@ -89,8 +83,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $size = Attribute::where('name', 'size')->get();
+        $weight = Attribute::where('name', 'wieght')->get();
         $cats = Category::orderBy('name', 'ASC')->get();
-        return view('admin.product.edit', compact('cats', 'product'));
+        return view('admin.product.edit', compact('cats', 'product','size','weight'));
     }
 
     /**

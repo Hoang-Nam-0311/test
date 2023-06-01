@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Attribute extends Model
+class CartAttr extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'value', 'description'];
+    protected $fillable = ['cart_id', 'attr_id'];
 }

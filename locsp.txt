@@ -1,0 +1,42 @@
+  public function index(Request $req , $namecate)
+    {
+        $products = Product::orderBy('id', 'DESC')->paginate(9);
+        $namecate = Category::where('name',$namecate)->get();
+       
+        foreach ($namecate as $cate){
+            $category_id = $cate->category_id;
+        }
+       
+        if(isset($_GET['sort_by'])){
+            
+            $sort_by = $_GET['sort_by'];
+            if($sort_by=='giam_dan'){
+                $category_by_id = Product::with('category')->where('category_id', $category_id)->orderBy('price', 'DESC')->paginate(6);
+
+            }elseif($sort_by == 'tang_dan'){
+                $category_by_id = Product::with('category')->where('category_id', $category_id)->orderBy('price', 'ASC')->paginate(6);
+
+            }elseif($sort_by == 'za'){
+                $category_by_id = Product::with('category')->where('category_id', $category_id)->orderBy('name', 'DESC')->paginate(6);
+
+            }elseif($sort_by == 'az'){
+                $category_by_id = Product::with('category')->where('category_id', $category_id)->orderBy('name', 'ASC')->paginate(6);
+            }
+        }else{
+            $category_by_id = Product::with('category')->where('category_id', $category_id)->orderBy('id', 'DESC')->paginate(6);
+        }
+
+
+        if($request->has('categoryId')){
+            
+        }
+        $categoryId = $request->categoryId;
+       
+        $sorty = $req->sort_by;
+      
+        $product = Product::orderBy('id', 'DESC');
+        if ($sort_by) $product->where('category_id', $sort_by);
+        $product = $product->get();
+       
+        return view('admin.product.index', compact('products'));
+    }

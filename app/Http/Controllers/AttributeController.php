@@ -23,31 +23,31 @@ class AttributeController extends Controller
     {
        
 
-        $form_data = $req->all('name', 'status', 'value');
+        $form_data = $req->all('name', 'value', 'description');
 
         Attribute::create($form_data);
         return redirect()->route('attribute.index');
     }
 
-    public function edit(Attribute $attri)
+    public function edit(Attribute $attr)
     {
         
-        return view('admin.category.edit', compact('attr'));
+        return view('admin.attribute.edit', compact('attr'));
     }
 
-    public function update(Request $req, Attribute $attri)
+    public function update(Request $req, Attribute $attr)
     {
        
 
-        $form_data = $req->all('name', 'value','status');
+        $form_data = $req->all('name', 'value', 'description');
 
-        $attri->update($form_data); 
+        $attr->update($form_data); 
         return redirect()->route('attribute.index');
     }
 
-    public function delete(Attribute $attri)
+    public function delete(Attribute $attr)
     {
-        $attri->delete();
+        $attr->delete();
         return redirect()->route('attribute.index');
     }
 }

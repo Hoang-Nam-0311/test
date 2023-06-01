@@ -39,14 +39,14 @@
             </div>
             <div class="form-group">
                 <label for="">Giá sản phẩm</label>
-                <input type="text" class="form-control" name="price"  value="{{$product->price}}" placeholder="Input field">
+                <input type="text" class="form-control" name="price" value="{{$product->price}}" placeholder="Input field">
                 @error('price')
                 <small style="color: red; font-style: italic">{{$message}}</small>
                 @enderror
             </div>
             <div class="form-group">
                 <label for="">Giá KM</label>
-                <input type="text" class="form-control" name="sale_price"  value="{{$product->sale_price}}" placeholder="Input field">
+                <input type="text" class="form-control" name="sale_price" value="{{$product->sale_price}}" placeholder="Input field">
                 @error('sale_price')
                 <small style="color: red; font-style: italic">{{$message}}</small>
                 @enderror
@@ -69,9 +69,28 @@
                     </label>
                 </div>
             </div>
+            <div class="form-check">
+                <label for="">Size</label>
+                @foreach($size as $data)
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="id_attr[]" value="{{$data->id}}">
+                    {{$data->value}}
+                </label>
+                @endforeach
+            </div>
+
+            <div class="form-check">
+                <label for="">Wieght</label>
+                @foreach($weight as $data)
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="id_attr[]" value="{{$data->id}}">
+                    {{$data->value}}
+                </label>
+                @endforeach
+            </div>
             <div class="form-group">
                 <label for="">Ảnh</label>
-                <input type="file" class="form-control" name="upload" >
+                <input type="file" class="form-control" name="upload">
                 <img src="{{url('uploads')}}/{{$product->image}}" style="width:100%">
                 @error('upload')
                 <small style="color: red; font-style: italic">{{$message}}</small>

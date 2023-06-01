@@ -110,7 +110,6 @@
                                 <h6>{{$prod->name}}</h6>
                                 <div class="price">
                                     <h6>£{{$prod->price}}</h6>
-                                    <!-- <h6 class="l-through">${{number_format($prod->price)}}</h6> -->
                                 </div>
                                 <div class="prd-bottom">
 
@@ -139,18 +138,7 @@
             </section>
             <!-- End Best Seller -->
             <!-- Start Filter Bar -->
-            <div class="filter-bar d-flex flex-wrap align-items-center">
-
-                <div class="pagination">
-                    <a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-                    <a href="#" class="active">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-                    <a href="#">6</a>
-                    <a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                </div>
-            </div>
+           
             <!-- End Filter Bar -->
         </div>
     </div>

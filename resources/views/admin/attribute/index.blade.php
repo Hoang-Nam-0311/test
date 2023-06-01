@@ -20,9 +20,10 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Status</th>
-            <th>Value</th>
+            <th>NAME</th>
+            <th>VALUE</th>
+            <th>DESCRIPTION</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -30,8 +31,8 @@
         <tr>
             <td>{{ $cat->id }}</td>
             <td>{{ $cat->name }}</td>
-            <td>{{ $cat->status == 0 ? 'Tạm ẩn' : 'Hiển thị' }}</td>
             <td>{{ $cat->value }}</td>
+            <td>{{ $cat->description }}</td>
             <td>
                 <form action="{{route('attribute.delete', $cat->id)}}" method="post">
                     @csrf @method('DELETE')
