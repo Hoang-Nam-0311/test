@@ -50,6 +50,7 @@
                                                 <select class="form-select form-select-lg" name="attr_id[]" style="padding-top: 0; padding-bottom: 0; font-size: 18px;">
                                                     @foreach($item->cart->product_attris as $size)
                                                     @if($size->name == 'size')
+                                                    <p>Size:</p>
                                                     <option value="{{$size->id}}" {{$item->cart_attr->contains('id', $size->id) ? 'selected' : ''}}>
                                                         {{$size->value}}
                                                     </option>
@@ -81,11 +82,14 @@
                                     <h5>£{{$item->cart->price}}</h5>
                                 </td>
                                 <td>
-                                    <div class="product_count">
-                                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-                                        <input type="text" name="quantity[]" id="sst" value="{{$item->quantity}}" class="input-text qty">
-                                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
-                                    </div>
+                                    <form action="{{route('cart.update_quantity', $item->id)}}" method="post" id="form{{$item->id}}">
+                                        @csrf
+                                        <div class="product_count">
+                                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                                            <input type="text" name="quantity[]" value="{{$item->quantity}}" class="input-text qty" id="quantity{{$item->id}}">
+                                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                                        </div>
+                                    </form>
                                 </td>
                                 <td>
                                     <h5>£{{$item->total_price}}</h5>
@@ -162,8 +166,8 @@
                                             <option value="2">Select a State</option>
                                             <option value="4">Select a State</option>
                                         </select>
-                                        <input type="text" placeholder="Postcode/Zipcode">
-                                        <a class="gray_btn" href="#">Update Details</a>
+
+
                                     </div>
                                 </td>
                             </tr>

@@ -22,7 +22,6 @@
 					<h3>Log in to enter</h3>
 					<form class="row login_form" action="" method="post" id="contactForm" novalidate="novalidate">
 						@csrf
-
 						<div class="col-md-12 form-group">
 							<input type="email" class="form-control" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
 							@error('email')

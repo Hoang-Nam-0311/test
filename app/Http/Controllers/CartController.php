@@ -7,8 +7,11 @@ use App\Models\Product;
 use App\Models\Cart;
 use App\Models\CartAttr;
 use App\Models\Attribute;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class CartController extends Controller
 {
@@ -132,4 +135,6 @@ class CartController extends Controller
 
         return redirect()->route('cart.view');
     }
+
+
 }

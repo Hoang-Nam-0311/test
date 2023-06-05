@@ -33,6 +33,18 @@
             <td>{{ $product->price }}</td>
             <td>{{ $product->status == 0 ? 'Tạm ẩn' : 'Hiển thị' }}</td>
             <td>
+                @foreach($product->attr as $item2)
+                @if($item2->attr_name->name == 'size')
+                <div><b>{{$item2->attr_name->name}}</b>: {{$item2->attr_name->value}}</div>
+                @else
+                <div>
+                    <b>{{$item2->attr_name->name}}</b>:
+                    {{$item2->attr_name->value}}
+                </div>
+                @endif
+                @endforeach
+            </td>
+            <td>
                 <img src="{{url('uploads')}}/{{$product->image}}" width="60">
             </td>
             <td class="text-right">

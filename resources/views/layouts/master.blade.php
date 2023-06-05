@@ -34,8 +34,9 @@
 
 <body>
     @include('layouts.header')
+    @include('sweetalert::alert')
     @yield('main')
-    
+
     @include('layouts.footer')
 
 
@@ -57,7 +58,7 @@
     <script src="{{url('')}}/assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 </body>
 
 
@@ -113,16 +114,32 @@
         $("#slider-range").slider({
             orientation: "horizontal",
             range: true,
-            min:{{$min_price}},
-            max:{{$max_price}},
-            steps:150,
-            values: [ {{$min_price}} , {{$max_price}}  ],
+            min: {
+                {
+                    $min_price
+                }
+            },
+            max: {
+                {
+                    $max_price
+                }
+            },
+            steps: 150,
+            values: [{
+                {
+                    $min_price
+                }
+            }, {
+                {
+                    $max_price
+                }
+            }],
             slide: function(event, ui) {
                 $("#amount").val("£" + ui.values[0] + " - £" + ui.values[1]);
-                
+
                 $("#start_price").val(ui.values[0]);
                 $("#end_price").val(ui.values[1]);
-            
+
             }
         });
         $("#amount").val("£" + $("#slider-range").slider("values", 0) +

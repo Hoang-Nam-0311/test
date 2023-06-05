@@ -26,6 +26,11 @@ class Product extends Model
         return $this->belongsToMany(Attribute::class, 'product_attris');
     }
 
+    public function attr()
+    {
+        return $this->hasMany(ProductAttri::class, 'id_product', 'id');
+    }
+
     public function product_attris()
     {
         return $this->belongsToMany(Attribute::class, 'product_attris', 'id_product', 'id_attr');

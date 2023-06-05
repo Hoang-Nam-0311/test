@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PasswordReset;
-
-
+use Alert;
 
 class HomeController extends Controller
 {
@@ -155,35 +154,27 @@ class HomeController extends Controller
         );
         if (Customer::create($form_data)) {
             
-            return redirect()->route('home.login')->with('Yes', 'Đăng ký thành công, bạn có thể đăng nhập');
+            return redirect()->route('home.login')->with('yes', 'Đăng ký thành công, bạn có thể đăng nhập');
         }
-        return redirect()->back()->with('No', 'Đăng ký không thành công, hãy thử đăng ký lại thông tin');
+        return redirect()->back()->with('no', 'Đăng ký không thành công, hãy thử đăng ký lại thông tin');
     }
 
 
 
     public function checkLogin(Request $req)
     {
+        
         $form_data = $req->only('email', 'password');
         
         $check = Auth::guard('cus')->attempt($form_data, true);
-        // $req->validate([
-        //     'email' => 'required|email',
-        //     'password' => 'required|min:6'
-        // ],
-        //     [
-        //         'email.required' => '*Email không được để trống',
-        //         'email.email' => '*Email không đúng định dạng',
-        //         'password.required' => '*Mật khẩu không được để trống',
-        //         'password.min' => '*Mật khẩu có thể không đúng?',
-        //     ]
-        // );
+    
 
         if ($check) {
-            
-            return redirect()->route('home.index')->with('Yes', 'Đăng ký thành công, bạn có thể đăng nhập');
+            alert('Oh nooo!', 'Your account does not exist', 'success');
+            return redirect()->route('home.index');
         }
-        return redirect()->back()->with('No', 'Đăng ký không thành công, hãy thử đăng ký lại thông tin');
+        alert()->error('Oh nooo!', 'Your account does not exist');
+        return redirect()->back();
     }
 
 
